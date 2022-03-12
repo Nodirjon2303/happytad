@@ -24,9 +24,9 @@
 	<div class="body">
 		<nav class="side-bar">
 			<ul>
-				<button class="button-9" role="button">Login</button>
+				<button class="button-9" role="button"><a href="{% url 'login' %}">Login</a></button>
 				<li>
-					<a href="#">
+					<a href="{% url 'home' %}">
 						<i class="fa-solid fa-house"></i>
 						<span>Home</span>
 					</a>
@@ -63,69 +63,18 @@
 				</li>
 				<!-- HTML !-->
 			</ul>
-			<div class="select_leng">
-				<i style="padding-left: 10px;" class="fa-solid fa-circle-question"></i>
-				<i style="padding-left: 10px; padding-right: 20px"  class="fa-solid fa-person"></i>
-				<form>
-					<select name="languages" id="languages">
-						<option value="Uzbekistan">Uzbekistan</option>
-						<option value="Russia">Russia</option>
-						<option value="kazakhstan">kazakhstan</option>
-						<option value="English">English</option>
-					</select>
-				</form>
-			</div>
 		</nav>
 		<section class="section-1">
 			<div class="card_home">
+                {% for theme in homethemes %}
 				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" style="height: 12rem;" src="./img/grand-canyon.jpg" alt="Card image cap">
+					<img class="card-img-top" style="height: 12rem;" src="{{ theme.image.url }}" alt="Card image cap">
 					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
+						<h5 class="card-title">{{ theme.title }}</h5>
 					</div>
 				</div>
-				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" style="height: 12rem;" src="./img/grand-canyon.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-					</div>
-				</div>
-				<div class="card" style="width: 25rem;">
-					<img class="card-img-top" style="height: 12rem;" src="./img/grand-canyon.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-					</div>
-				</div>
+                {% endfor %}
 			</div>
-			<div class="card_home">
-				<div class="card_home">
-					<div class="card" style="width: 15rem; height: 5rem">
-						<img class="card-img-top" src="./img/grand-canyon.jpg" alt="Card image cap">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-						</div>
-					</div>
-					<div class="card" style="width: 15rem; height: 5rem">
-						<img class="card-img-top" src="./img/grand-canyon.jpg" alt="Card image cap">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-						</div>
-					</div>
-					<div class="card" style="width: 15rem; height: 5rem">
-						<img class="card-img-top" src="./img/grand-canyon.jpg" alt="Card image cap">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-						</div>
-					</div>
-					<div class="card" style="width: 15rem; height: 5rem">
-						<img class="card-img-top" src="./img/grand-canyon.jpg" alt="Card image cap">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-						</div>
-					</div>
-				</div>
-		</section>
-	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

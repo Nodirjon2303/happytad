@@ -53,4 +53,5 @@ def registerView(request):
 
 
 def homeView(request):
-    return render(request, 'home.html', context={})
+    homethemes = Homethemes.objects.all()
+    return render(request, 'home.html', context={'homethemes':homethemes})
