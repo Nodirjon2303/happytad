@@ -52,3 +52,11 @@ class WhatWillDo(models.Model):
     def __str__(self):
         return self.question
 
+
+class Homethemes(models.Model):
+    image = models.ImageField(upload_to='images')
+    title = models.CharField(max_length=225, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
