@@ -19,7 +19,7 @@ class Invoice(models.Model):
     shipto = models.CharField(max_length=225, null=True, blank=True)
     created_date = models.DateField(blank=True, null=True)
     due_days = models.IntegerField(null=True, blank=True)
-    name = models.CharField(blank=True, null=True)
+    name = models.CharField(blank=True, null=True, max_length=125)
     tax_rate = models.IntegerField(null=True, blank=True)
     def __str__(self):
         return self.name
