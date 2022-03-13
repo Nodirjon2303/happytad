@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 	font-family: arial, sans-serif;
 }
+.logo11{
+  width: 30px;
+  border-radius: 5px;
+}
 .header {
 	display: flex;
 	justify-content: space-between;

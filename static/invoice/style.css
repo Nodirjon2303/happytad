@@ -5,6 +5,10 @@
     border: thin solid #e8cfcf;
     border-radius: 2px;
 }
+.logo11{
+  width: 30px;
+  border-radius: 5px;
+}
 .feedback-messages .alert {
     display: none;
     margin-bottom: 10px;
