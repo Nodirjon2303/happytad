@@ -98,7 +98,6 @@ from InvoiceGenerator.api import Invoice, Item, Client, Provider, Creator
 from tempfile import NamedTemporaryFile
 import os
 def invoiceView(request):
-<<<<<<< HEAD
     if request.method == 'POST':
         data = json.loads(request.body)
         print(data)
@@ -131,9 +130,8 @@ def invoiceView(request):
 
         return JsonResponse({'media': 'media/invoice2.pdf'})
     return render(request, 'invoice.html', context={})
-=======
-    return render(request, 'invoice.html', context={})
+
 
 def CalculatorView(request):
     return render(request, 'index.html', context={})
->>>>>>> a88793d89324b932a7411ef18eea4ccf49b00e3f
+

@@ -3,7 +3,7 @@
 {% load static %}
 <head>
 
-    <title>Invoice Template :: Free Printable Invoice :: Skynova.com</title>
+    <title>Invoice page</title>
     <meta name="Description" content="Edit, print or download this professional invoice for free.">
 
 
@@ -184,8 +184,8 @@
                     <span class="msg"></span>
                 </div>
             </div>
-            <form id="invoice_form" name="invoice_form" action="" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
+
+
                 <div id="options" class="hidden-print">
                     <div class="options-container">
                         <label class="option label-checkbox">
@@ -222,8 +222,7 @@
                         </td>
                         <td></td>
                         <td class="minify" id="Savebutton">
-                            <button type="button" class="btn toggleSaveBox" onclick="invoice_data()"><ins
-                                    class="isSaving">Cancel&nbsp;</ins>Save</button>
+                            <button type="button" class="btn toggleSaveBox" onclick="invoice_data()">Save</button>
                         </td>
                     </tr>
                 </table>
@@ -557,7 +556,6 @@
                         </td>
                     </tr>
                 </table>
-            </form>
         </div>
     </div>
     <footer class="page-footer">
@@ -725,11 +723,12 @@
     <script src="https://www.skynova.com/app/invoices/javascript/javascript.js?v=V0001549"></script>
     <script
         type="text/javascript">window.NREUM || (NREUM = {}); NREUM.info = { "beacon": "bam-cell.nr-data.net", "licenseKey": "8a693f45cd", "applicationID": "149979790", "transactionName": "MlAEYRBYDUEFUkwIDQsaM0cLFhNHBl1RAk0RUAtFDlgXV0tDVxQWAEdIRQpJ", "queueTime": 0, "applicationTime": 47, "atts": "HhcHF1hCHk8=", "errorBeacon": "bam-cell.nr-data.net", "agent": "" }</script>
-    <script defer
-        src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
-        integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
-        data-cf-beacon='{"rayId":"6eac3ef07d63500c","token":"984c858828644809a4fdf1ea68f32b03","version":"2021.12.0","si":100}'
-        crossorigin="anonymous"></script>
+{#    <script defer#}
+{#        src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"#}
+{#        integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="#}
+{#        data-cf-beacon='{"rayId":"6eac3ef07d63500c","token":"984c858828644809a4fdf1ea68f32b03","version":"2021.12.0","si":100}'#}
+{#        crossorigin="anonymous"></script>#}
+
 </body>
 
 </html>
