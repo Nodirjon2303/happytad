@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
-
+{% load static %}
 <head>
 
     <title>Invoice Template :: Free Printable Invoice :: Skynova.com</title>
     <meta name="Description" content="Edit, print or download this professional invoice for free.">
 
 
-
-
+    <script src="{% static 'js/main.js' %}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1071820919"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -92,6 +91,26 @@
     <script type="text/javascript" src="https://www.skynova.com/ajaxupload.js?v=V0001549"></script>
 </head>
 <body class="pub pub-template ">
+
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+</script>
     <header class="header">
 		<h2 class="u-name">Happ<b>Tad</b>
 			<label for="checkbox">
@@ -184,7 +203,7 @@
                     </div>
                 </div>
                 <table class="navbar-templates hidden-large">
-                    <tr>
+                    <tr >
                         <td class="minify">
                             <button type="button" class="btn btnPreview">View</button>
                         </td>
@@ -201,8 +220,8 @@
                                 onclick="alert('Please save your invoice before recording payments.')">Payments</button>
                         </td>
                         <td></td>
-                        <td class="minify">
-                            <button type="button" class="btn toggleSaveBox"><ins
+                        <td class="minify" id="Savebutton">
+                            <button type="button" class="btn toggleSaveBox" onclick="invoice_data()"><ins
                                     class="isSaving">Cancel&nbsp;</ins>Save</button>
                         </td>
                     </tr>
@@ -344,7 +363,7 @@
                     </div>
                     <!--end meta-->
                     <table id="dataTable" class="table-record">
-                        <tbody>
+                        <tbody id="lines">
                             <tr class="hidden-small">
                                 <th></th>
                                 <th style="width:86px">Item</th>
@@ -375,23 +394,23 @@
                                 </td>
                                 <td>
                                     <label class="hidden-large">Description</label>
-                                    <textarea name="description[]" id="description[]" rows="1" maxlength="1000"
+                                    <textarea name="description[]" id="description1" rows="1" maxlength="1000"
                                         class="growTextarea"></textarea>
                                 </td>
                                 <td class="price">
                                     <label class="hidden-large">Unit Price</label>
-                                    <input type="number" name="unit_price[]" id="unit_price[]"
+                                    <input type="number" name="unit_price[]" id="unit_price1"
                                         class="text-right linePrice inputNumber" value="" autocomplete="nope"
                                         placeholder="0.00">
                                 </td>
                                 <td class="qty">
                                     <label class="hidden-large">Quantity</label>
-                                    <input type="number" name="qty[]" id="qty[]" class="text-right lineQty inputNumber"
+                                    <input type="number" name="qty[]" id="qty1" class="text-right lineQty inputNumber"
                                         value="" autocomplete="nope" placeholder="0.00">
                                 </td>
                                 <td class="amount alertLineTotal">
                                     <label class="hidden-large">Amount</label>
-                                    <input type="text" tabindex="-1" name="total[]" id="total[]" class="lineTotal"
+                                    <input type="text" tabindex="-1" name="total[]" id="total1" class="lineTotal"
                                         value="0.00" readonly>
                                 </td>
                             </tr>
@@ -417,30 +436,30 @@
                                 </td>
                                 <td>
                                     <label class="hidden-large">Description</label>
-                                    <textarea name="description[]" id="description[]" rows="1" maxlength="1000"
+                                    <textarea name="description[]" id="description2" class="description" rows="1" maxlength="1000"
                                         class="growTextarea"></textarea>
                                 </td>
                                 <td class="price">
                                     <label class="hidden-large">Unit Price</label>
-                                    <input type="number" name="unit_price[]" id="unit_price[]"
+                                    <input type="number" name="unit_price[]" id="unit_price2"
                                         class="text-right linePrice inputNumber" value="" autocomplete="nope"
                                         placeholder="0.00">
                                 </td>
                                 <td class="qty">
                                     <label class="hidden-large">Quantity</label>
-                                    <input type="number" name="qty[]" id="qty[]" class="text-right lineQty inputNumber"
+                                    <input type="number" name="qty[]" id="qty2" class="text-right lineQty inputNumber"
                                         value="" autocomplete="nope" placeholder="0.00">
                                 </td>
                                 <td class="amount alertLineTotal">
                                     <label class="hidden-large">Amount</label>
-                                    <input type="text" tabindex="-1" name="total[]" id="total[]" class="lineTotal"
+                                    <input type="text" tabindex="-1" name="total[]" id="total2" class="lineTotal"
                                         value="0.00" readonly>
                                 </td>
                             </tr>
                         </tbody>
                     </table><!-- end dataTable -->
                     <div class="button-row">
-                        <button type="button" class="btn btn-xs btnAddRow" onclick="newLineClick()">
+                        <button type="button" class="btn btn-xs btnAddRow" onclick="newLinejs()">
                             <i class="icon-new">&nbsp;</i><span>New Line</span>
                         </button>
                     </div>
@@ -533,7 +552,7 @@
                         </td>
                         <td></td>
                         <td class="minify">
-                            <button type="button" class="btn openSaveBox">Save</button>
+                            <button type="button" class="btn openSaveBox" onclick="invoice_data()">Save</button>
                         </td>
                     </tr>
                 </table>

@@ -3,8 +3,8 @@ from django.shortcuts import render, redirect
 from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from .models import *
-
-
+import json
+from django.http import JsonResponse
 # Create your views here.
 
 def loginView(request):
@@ -94,6 +94,39 @@ def BlogDetailView(request,slug):
     }
 
     return render(request,'blog-detail.html',context)
-
+from InvoiceGenerator.api import Invoice, Item, Client, Provider, Creator
+from tempfile import NamedTemporaryFile
+import os
 def invoiceView(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        print(data)
+
+
+
+
+
+
+        # # choose english as language
+        os.environ["INVOICE_LANG"] = "en"
+
+        client = Client(data['to_customer'])
+        provider = Provider(data['from_name'], bank_account='2600420569', bank_code='2010')
+        creator = Creator(data['from_name'])
+
+        invoice = Invoice(client, provider, creator)
+        invoice.currency_locale = 'en_US.UTF-8'
+        invoice.currency = ''
+        invoice.number =  data['invoice_number']
+        invoice.use_tax = True
+        for i in data['data']:
+            print(data['data'])
+            invoice.add_item(Item(int(float(i['quantity'])), int(float(i['unit_price'])), description=i['description']))
+        print("Ishladi")
+        from InvoiceGenerator.pdf import SimpleInvoice
+
+        pdf = SimpleInvoice(invoice)
+        pdf.gen("media/invoice2.pdf", generate_qr_code=True)
+
+        return JsonResponse({'media': 'media/invoice2.pdf'})
     return render(request, 'invoice.html', context={})
