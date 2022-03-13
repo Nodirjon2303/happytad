@@ -8,5 +8,6 @@ urlpatterns = [
     path("freeadvice/", BlogPageView, name="blogpage"),
     path('freeadvice/<slug:slug>/', BlogDetailView, name='blog_detail'),
     path('invoice/', invoiceView, name='invoice'),
-    path('', homeView, name = 'home')
+    path('', homeView, name = 'home'),
+    path('tax_calculator/', CalculatorView, name = 'calculator_page'),
 ]

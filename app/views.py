@@ -97,3 +97,6 @@ def BlogDetailView(request,slug):
 
 def invoiceView(request):
     return render(request, 'invoice.html', context={})
+
+def CalculatorView(request):
+    return render(request, 'index.html', context={})
