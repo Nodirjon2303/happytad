@@ -79,16 +79,18 @@
         </ul>
     </nav>
     <section class="section-1">
+        {% for theme in homethemes %}
         <div class="card_home">
-            {% for theme in homethemes %}
+            {% for i in theme %}
                 <div class="card" style="width: 25rem;">
-                    <img class="card-img-top" style="height: 350px;" src="{{ theme.image.url }}" alt="Card image cap">
+                    <img class="card-img-top" style="height: 350px;" src="{{ i.image.url }}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{ theme.title }}</h5>
+                        <h5 class="card-title">{{ i.title }}</h5>
                     </div>
                 </div>
             {% endfor %}
         </div>
+    {% endfor %}
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
                 crossorigin="anonymous"></script>

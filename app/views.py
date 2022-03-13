@@ -51,7 +51,15 @@ def registerView(request):
     return render(request, 'Registration.html', context=context)
 def homeView(request):
     homethemes = Homethemes.objects.all()
-    return render(request, 'home.html', context={'homethemes':homethemes})
+    data=[]
+    res=[]
+    for i in homethemes:
+        res.append(i)
+        if len(res)==3:
+            data.append(res)
+            res=[]
+
+    return render(request, 'home.html', context={'homethemes':data})
 
 def logoutView(request):
     if request.user.username:

@@ -38,6 +38,9 @@ function invoice_data(){
                 document.getElementById('Savebutton').innerHTML+=`
                 <a href="/${data['media']}" download="/${data['media']}"> Download</a>
                 `
+                document.getElementById('Savebutton2').innerHTML+=`
+                <a href="/${data['media']}" download="/${data['media']}"> Download</a>
+                `
             })
 
         })
