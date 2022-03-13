@@ -3,8 +3,12 @@ from django.shortcuts import render, redirect
 from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from .models import *
+from InvoiceGenerator.api import Invoice, Item, Client, Provider, Creator
+from tempfile import NamedTemporaryFile
 import json
 from django.http import JsonResponse
+import os
+
 # Create your views here.
 
 def loginView(request):
@@ -94,9 +98,8 @@ def BlogDetailView(request,slug):
     }
 
     return render(request,'blog-detail.html',context)
-from InvoiceGenerator.api import Invoice, Item, Client, Provider, Creator
-from tempfile import NamedTemporaryFile
-import os
+
+
 def invoiceView(request):
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -130,7 +133,6 @@ def invoiceView(request):
 
         return JsonResponse({'media': 'media/invoice2.pdf'})
     return render(request, 'invoice.html', context={})
-
 
 def CalculatorView(request):
     return render(request, 'index.html', context={})

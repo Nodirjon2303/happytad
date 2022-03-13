@@ -3,11 +3,12 @@
 {% load static %}
 <head>
 
-    <title>Invoice page</title>
+    <title>Invoice Template :: Free Printable Invoice :: Skynova.com</title>
     <meta name="Description" content="Edit, print or download this professional invoice for free.">
 
 
-    <script src="{% static 'js/main.js' %}"></script>
+
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1071820919"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -42,6 +43,7 @@
 
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40689230-1"></script>
+    <script async src="{% static 'js/main.js' %}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -91,7 +93,6 @@
     <script type="text/javascript" src="https://www.skynova.com/ajaxupload.js?v=V0001549"></script>
 </head>
 <body class="pub pub-template ">
-
 <script>
     function getCookie(name) {
         let cookieValue = null;
@@ -162,7 +163,7 @@
             <!-- HTML !-->
         </ul>
     </nav>
-    <div class="page-body">
+   <div class="page-body">
         <div class="container">
             <div class="page-header" style="margin-top:230px">
             </div>
@@ -235,7 +236,7 @@
                             <button type="button" class="btn has-tooltip tooltip-bottom disabled" tabindex="-1">Print <i
                                     class="tip">After saving your invoice<br>(click the save-button to the right)<br>you
                                     can print your invoice.</i></button>
-                        </td>
+                            </td>
                         <td class="minify">
                             <button type="button" class="btn has-tooltip tooltip-bottom disabled" tabindex="-1">PDF <i
                                     class="tip">After saving your invoice<br>(click the save-button to the right)<br>you
@@ -296,7 +297,7 @@
                                     <td>
                                         <h2>From</h2>
                                     </td>
-                                </tr>
+                                    </tr>
                                 <tr>
                                     <td>
                                         <input type="text" name="from_name" id="from_name" value="" maxlength="500"
@@ -481,7 +482,7 @@
                                     <td class="sum-number">
                                         <input type="text" name="sum_subtotal" id="sum_subtotal"
                                             class="noborder nofocus text-right"
-                                            onclick="alert('The subtotal is calculated automatically as soon as you have entered something into both the unit price and the quantity field in the lines above.\n\nExample: If you wish to enter a service for $100.00, you should enter 100.00 in the unit price field and 1.00 in the quantity field.')"
+                                               onclick="alert('The subtotal is calculated automatically as soon as you have entered something into both the unit price and the quantity field in the lines above.\n\nExample: If you wish to enter a service for $100.00, you should enter 100.00 in the unit price field and 1.00 in the quantity field.')"
                                             value="0.00" readonly>
                                     </td>
                                 </tr>
@@ -533,31 +534,6 @@
                     <input type="hidden" id="lastDocFormInput" name="lastDocFormInput" value="POST_OK">
                 </div>
                 <!--end #modeEdit-->
-                <table class="navbar-templates hidden-large">
-                    <tr>
-                        <td class="minify">
-                            <button type="button" class="btn btnPreview">View</button>
-                        </td>
-                        <td class="minify">
-                            <button type="button" class="btn disabled" tabindex="-1"
-                                onclick="alert('Please save your invoice before creating PDF.')">PDF</button>
-                        </td>
-                        <td class="minify">
-                            <button type="button" class="btn disabled" tabindex="-1"
-                                onclick="alert('Please save your invoice before sending.')">Send</button>
-                        </td>
-                        <td class="minify">
-                            <button type="button" class="btn disabled hidden-xs" tabindex="-1"
-                                onclick="alert('Please save your invoice before recording payments.')">Payments</button>
-                        </td>
-                        <td></td>
-                        <td class="minify">
-                            <button type="button" class="btn openSaveBox" onclick="invoice_data()">Save</button>
-                        </td>
-                    </tr>
-                </table>
-        </div>
-    </div>
     <footer class="page-footer">
         <div class="container">
             <div class="copyright">
@@ -723,11 +699,6 @@
     <script src="https://www.skynova.com/app/invoices/javascript/javascript.js?v=V0001549"></script>
     <script
         type="text/javascript">window.NREUM || (NREUM = {}); NREUM.info = { "beacon": "bam-cell.nr-data.net", "licenseKey": "8a693f45cd", "applicationID": "149979790", "transactionName": "MlAEYRBYDUEFUkwIDQsaM0cLFhNHBl1RAk0RUAtFDlgXV0tDVxQWAEdIRQpJ", "queueTime": 0, "applicationTime": 47, "atts": "HhcHF1hCHk8=", "errorBeacon": "bam-cell.nr-data.net", "agent": "" }</script>
-{#    <script defer#}
-{#        src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"#}
-{#        integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="#}
-{#        data-cf-beacon='{"rayId":"6eac3ef07d63500c","token":"984c858828644809a4fdf1ea68f32b03","version":"2021.12.0","si":100}'#}
-{#        crossorigin="anonymous"></script>#}
 
 </body>
 

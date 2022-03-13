@@ -1,7 +1,4 @@
-
-
 function invoice_data(){
-    console.log('data')
     description1 = document.getElementById('description1').value;
     description2 = document.getElementById('description2').value;
     unitprice1 = document.getElementById('unit_price1').value;
@@ -17,37 +14,34 @@ function invoice_data(){
     dateend  = document.getElementById('dateEnd').value;
 
     console.log(description1, description2, unitprice1, unitprice2, quantity1, quantity2)
-    // var url = `/invoice/`
-    // fetch(url, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'X-CSRFToken': csrftoken,
-    //     },
-    //     body: JSON.stringify({
-    //         "data": [{'description': description1, 'unit_price':unitprice1, 'quantity': quantity1},{'description': description2, 'unit_price':unitprice2, 'quantity': quantity2}],
-    //         'from_name':from_name,
-    //         'from_address': from_address,
-    //         'to_customer': to_customer,
-    //         'to_address': to_customer,
-    //         'invoice_number': invoice_number,
-    //         'datestart': datestart,
-    //         'dateend': dateend,
-    //     })
-    // })
-    //     .then((response) => {
-    //         response.json().then((data) => {
-    //         // console.log(data)
-    //             document.getElementById('Savebutton').innerHTML+=`
-    //             <a href="/${data['media']}" download="/${data['media']}"> Download</a>
-    //             `
-    //         })
-    //
-    //     })
+    var url = /invoice/
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify({
+            "data": [{'description': description1, 'unit_price':unitprice1, 'quantity': quantity1},{'description': description2, 'unit_price':unitprice2, 'quantity': quantity2}],
+            'from_name':from_name,
+            'from_address': from_address,
+            'to_customer': to_customer,
+            'to_address': to_customer,
+            'invoice_number': invoice_number,
+            'datestart': datestart,
+            'dateend': dateend,
+        })
+    })
+        .then((response) => {
+            response.json().then((data) => {
+            // console.log(data)
+                document.getElementById('Savebutton').innerHTML+=`
+                <a href="/${data['media']}" download="/${data['media']}"> Download</a>
+                `
+            })
+
+        })
 }
-
-
-
 function newLinejs(){
     document.getElementById('lines').innerHTML+=`<tr class="line">
                                 <td class="zap has-tooltip tooltip-left">
