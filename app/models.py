@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+from django.template.defaultfilters import slugify
 class Tadbirkor(models.Model):
     user = models.ForeignKey(User, models.CASCADE, null=True, blank=True)
     phone_number = models.CharField(max_length=25, null=True, blank=True)
@@ -41,6 +41,12 @@ class Free_advice(models.Model):
     image = models.ImageField(blank=True, null=True, upload_to='images')
     description = models.TextField(blank=True, null=True)
     number_of_view = models.IntegerField(null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True, max_length=125)
+    created_date = models.DateTimeField(null=True, blank=True, auto_now_add=True)
+    def save(self, *args, **kwargs):  # new
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
