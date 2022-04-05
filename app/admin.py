@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Homethemes)
 admin.site.register(Free_advice)
 admin.site.register(Invoice_product)
+admin.site.register(Cashbook)

@@ -1,194 +1,159 @@
-class UI {
-  constructor() {
+const topCard = document.getElementsByClassName("top_card")[0]
 
-    this.budgetFeedback = document.querySelector(".budget-feedback");
-    this.expenseFeedback = document.querySelector(".expense-feedback");
-    this.budgetForm = document.getElementById("budget-form");
-    this.budgetInput = document.getElementById("budget-input");
-    this.budgetAmount = document.getElementById("budget-amount");
-    this.expenseAmount = document.getElementById("expense-amount");
-    this.balance = document.getElementById("balance");
-    this.balanceAmount = document.getElementById("balance-amount");
-    this.expenseForm = document.getElementById("expense-form");
-    this.expenseInput = document.getElementById("expense-input");
-    this.amountInput = document.getElementById("amount-input");
-    this.expenseList = document.getElementById("expense-list");
-    this.itemList = [];
-    this.itemID = 0;
-  }
-  // submit budget method
-  submitBudgetForm() {
-    const value = this.budgetInput.value;
-    if (value === '' || value < 0) {
-      this.budgetFeedback.classList.add('showItem');
-      this.budgetFeedback.innerHTML = `<p>value cannot be empty or 
-      negative</p>`;
-      const self = this;
-      console.log(this);
+const currencyPlaceholder = document.getElementById("symbol")
+// const currentBalancePlaceholder = document.getElementById("balance")
 
-      setTimeout(function () {
-        console.log(this);
-        console.log(self);
-        self.budgetFeedback.classList.remove("showItem");
-      }, 4000);
-    }
-    else {
-      this.budgetAmount.textContent = value;
-      this.budgetInput.value = "";
-      this.showBalance();
-    }
-  }
-  // show balance
-  showBalance() {
-    const expense = this.totalExpense();
-    const total = parseInt(this.budgetAmount.textContent) - expense;
-    this.balanceAmount.textContent = total;
-    if (total < 0) {
-      this.balance.classList.remove('showGreen', 'showBlack');
-      this.balance.classList.add('showRed')
-    }
-    else if (total < 0) {
-      this.balance.classList.remove('showRed', 'showBlack');
-      this.balance.classList.add('showGreen')
-    }
-    else if (total === 0) {
-      this.balance.classList.remove('showRed', 'showGreen');
-      this.balance.classList.add('showBlack')
-    }
-  }
-  // submit expense form 
-  submitExpenseForm() {
-    const expenseValue = this.expenseInput.value;
-    const amountValue = this.amountInput.value;
-    if (expenseValue === '' || amountValue === '' || amountValue < 0) {
-      this.expenseFeedback.classList.add("showItem");
-      this.expenseFeedback.innerHTML = `<p>values cannot be empty or
-      negative</p>`;
-      const self = this;
-      setTimeout(function () {
-        self.expenseFeedback.classList.remove("showItem")
-      }, 4000)
+const nameHolder = document.getElementById("transaction_name");
+const incomeRadio = document.getElementById("income");
+const expenseRadio = document.getElementById("expense");
+const amountHolder = document.getElementById("transaction_amount");
+
+const addTransactionButton =  document.getElementById("add_transaction");
+const cancelEditButton = document.getElementById("cancel_edit");
+
+const transactionList = document.getElementById("list_of_transactions")
+
+let currencySymbol = "";
+let transactions = [];
+let balance = 0
+let editing_id = -1;
+
+
+// balance = Number(window.localStorage.getItem("balance")) || 0;
+// transactions = JSON.parse(window.localStorage.getItem("transactions")) || [];
+//
+// const saveStatus = () => {
+//     window.localStorage.setItem("currencySymbol", currencySymbol);
+//     window.localStorage.setItem("balance", balance);
+//     window.localStorage.setItem("transactions", JSON.stringify(transactions));
+// }
+
+
+function del(i) {
+    transactions = transactions.filter((e,index) => i!=index);
+    render();
+}
+
+function edit(i){
+    transaction = transactions[i]
+    editing_id = i
+    cancelEditButton.style.display = "block"
+    nameHolder.value = transaction.name;
+    if(transaction.type == "income"){
+        incomeRadio.checked = true;
+        expenseRadio.checked = false;
     } else {
-      let amount = parseInt(amountValue);
-      this.expenseInput.value = "";
-      this.amountInput.value = "";
-
-      let expense = {
-        id: this.itemID,
-        title: expenseValue,
-        amount: amount,
-      }
-      this.itemID++;
-      this.itemList.push(expense);
-      this.addExpense(expense);
-      this.showBalance()
+        expenseRadio.checked = true;
+        incomeRadio.checked = false;
     }
-  }
-  // add expense
 
-  addExpense(expense) {
-    const div = document.createElement('div')
-    div.classList.add('expense');
-    div.innerHTML = `
-    <div class="expense">
-                                <div class="expense-item d-flex justify-content-between align-items-baseline">
-
-                                    <h6 class="expense-title mb-0 text-uppercase list-item">- ${expense.title}</h6>
-                                    <h5 class="expense-amount mb-0 list-item">${expense.amount}</h5>
-
-                                    <div class="expense-icons list-item">
-
-                                        <a href="#" class="edit-icon mx-2" data-id="${expense.id}">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="#" class="delete-icon" data-id="${expense.id}">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>`;
-    this.expenseList.appendChild(div);
-  }
-
-  // total expense
-  totalExpense() {
-    let total = 0;
-    if (this.itemList.length > 0) {
-      total = this.itemList.reduce(function (acc, curr) {
-
-        acc += curr.amount;
-        return acc;
-      }, 0);
-    }
-    this.expenseAmount.textContent = total;
-    return total;
-  }
-  // edit expense
-  editExpense(element) {
-    let id = parseInt(element.dataset.id);
-    let parent = element.parentElement.parentElement.parentElement;
-    // remove from dom
-    this.expenseList.removeChild(parent);
-    // remove from the dom
-    let expense = this.itemList.filter(function(item) {
-      return item.id === id;
-    });
-    // show value
-    this.expenseInput.value =  expense[0].title;
-    this.amountInput.value = expense[0].amount
-    // remove from the list 
-    let tempList = this.itemList.filter(function(item) {
-      return item.id !== id;
-    });
-    this.itemList = tempList;
-    this.showBalance();
-  }
-  // delete expense
-  deleteExpense(eleement) {
-    let id =  parseInt(eleement.dataset.id);
-    let parent = eleement.parentElement.parentElement.parentElement;
-    // remove from dom
-    this.expenseList.removeChild(parent);
-        // remove from the list 
-        let tempList = this.itemList.filter(function(item) {
-          return item.id !== id;
-        });
-        this.itemList = tempList;
-        this.showBalance()
-  }
-}
-function eventListeners() {
-  const budgetForm = document.getElementById('budget-form');
-  const expenseForm = document.getElementById('expense-form');
-  const expenseList = document.getElementById('expense-list');
-
-  // new instance of UI CLASS
-  const ui = new UI();
-
-  // budget form submit
-  budgetForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    ui.submitBudgetForm();
-  });
-  // expense form submit
-  expenseForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    ui.submitExpenseForm();
-
-  })
-  // expense click
-  expenseList.addEventListener('click', function (event) {
-    if(event.target.parentElement.classList.contains("edit-icon")){
-ui.editExpense(event.target.parentElement)
-    }
-    else if(event.target.parentElement.classList.contains
-      ("edit-icon")){
-        ui.deleteExpense(event.target.parentElement)
-    }
-  });
+    amountHolder.value = transaction.amount
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  eventListeners();
-});
+const render = () => {
+    currencyPlaceholder.innerHTML = `${currencySymbol}`
+
+    // currentBalancePlaceholder.innerHTML = `${balance}`
+
+    if(balance < 0){
+        topCard.classList.add("red")
+    } else{
+        topCard.classList.remove("red")
+    }
+}
+
+
+render();
+// saveStatus();
+
+let cancelEdit = () => {
+    editing_id = -1;
+    cancelEditButton.style.display = "none"
+    nameHolder.value = "";
+    amountHolder.value = "";
+    render();
+    // saveStatus();
+}
+
+addTransactionButton.addEventListener("click", () => {
+    let name = nameHolder.value;
+    let type = incomeRadio.checked ? "income" : "expense"
+    let amount = Number(amountHolder.value)
+
+    if(name == "" || amount == 0){
+        alert("Name and amount can't be empty");
+        return;
+    }
+
+    if(amount < 0){
+        alert("Negetive amounts are not allowed");
+        return;
+    }
+
+    let transaction = {
+        name,
+        amount, 
+        type,
+    }
+    if(editing_id == -1){
+        console.log('qushsak buladi', name, amount, type)
+    var url = `/calculator/`
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify({
+            'description':name,
+            'amount': amount,
+            'type': type
+        })
+    })
+        .then((response) => {
+            response.json().then((data) => {
+                balance = document.getElementById('balance').innerHTML;
+                balance = parseInt(balance)
+                if (type == 'income'){
+                    color = 'green'
+                    inex = '+'
+                    balance+=amount
+                }
+                else{
+                    color = 'red'
+                    inex = '-'
+                    balance-=amount
+                }
+                html = `
+                <li class="transaction income" style="background-color:${color}">
+                        <p>${name}</p>
+                        <div class="right">
+                            <p>${ inex} ${ amount }</p>
+                            <button class="link">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="link">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </li>
+                `
+                html1 = document.getElementById('list_of_transactions').innerHTML
+                document.getElementById('balance').innerHTML = balance;
+                document.getElementById('list_of_transactions').innerHTML=html+html1;
+            })
+
+
+        })
+}
+
+    else{
+        transactions[editing_id] = transaction;
+        editing_id = -1;
+        cancelEditButton.style.display = "none"
+    }
+    nameHolder.value = "";
+    amountHolder.value = "";
+    render();
+    // saveStatus();
+})

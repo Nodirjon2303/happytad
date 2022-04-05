@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from .forms import *
@@ -49,17 +50,20 @@ def registerView(request):
 
 
     return render(request, 'Registration.html', context=context)
-def homeView(request):
-    homethemes = Homethemes.objects.all()
-    data=[]
-    res=[]
-    for i in homethemes:
-        res.append(i)
-        if len(res)==3:
-            data.append(res)
-            res=[]
 
-    return render(request, 'home.html', context={'homethemes':data})
+def homeView(request):
+    # homethemes = Homethemes.objects.all()
+    # data=[]
+    # res=[]
+    # for i in homethemes:
+    #     res.append(i)
+    #     if len(res)==3:
+    #         data.append(res)
+    #         res=[]
+    # context = {'homethemes':data}
+    context = {}
+
+    return render(request, 'home-new.html', context=context)
 
 def logoutView(request):
     if request.user.username:
@@ -112,17 +116,11 @@ def invoiceView(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         print(data)
-
-
-
-
-
-
         # # choose english as language
         os.environ["INVOICE_LANG"] = "en"
 
-        client = Client(data['to_customer'])
-        provider = Provider(data['from_name'], bank_account='2600420569', bank_code='2010')
+        client = Client(summary=data['to_customer'], address=data['to_address'],)
+        provider = Provider(data['from_name'], bank_account='2600420569', bank_code='2010', address=data['from_address'])
         creator = Creator(data['from_name'])
 
         invoice = Invoice(client, provider, creator)
@@ -131,17 +129,45 @@ def invoiceView(request):
         invoice.number =  data['invoice_number']
         invoice.use_tax = True
         for i in data['data']:
-            print(data['data'])
+            print(i)
             invoice.add_item(Item(int(float(i['quantity'])), int(float(i['unit_price'])), description=i['description']))
         print("Ishladi")
         from InvoiceGenerator.pdf import SimpleInvoice
-
+        import random
         pdf = SimpleInvoice(invoice)
-        pdf.gen("media/invoice2.pdf", generate_qr_code=True)
+        soni = random.randint(1, 1000)
+        pdf.gen(f"media/invoice{soni}.pdf", generate_qr_code=True)
 
-        return JsonResponse({'media': 'media/invoice2.pdf'})
+        return JsonResponse({'media': f'media/invoice{soni}.pdf'})
     return render(request, 'invoice.html', context={})
-
+@login_required(login_url='login')
 def CalculatorView(request):
-    return render(request, 'index.html', context={})
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        description = data['description']
+        amount = data['amount']
+        type = data['type']
+        Cashbook.objects.create(user=request.user, type=type, description=description, amount=amount).save()
+        return JsonResponse({"data": 'ok'})
+
+    cashbooks = Cashbook.objects.filter(user=request.user).order_by('-id')
+    data = []
+    balance = 0
+    for i in cashbooks:
+        dict = {
+            'description': i.description,
+            'amount': i.amount,
+            'created_date': i.created_date
+        }
+        if i.type == 'income':
+            dict['type'] = '+'
+            balance += i.amount
+            dict['color'] = 'green'
+        else:
+            dict['type'] = '-'
+            balance -=i.amount
+            dict['color'] = 'red'
+        data.append(dict)
+    return render(request, 'calculator.html', context={'cashbook':data, 'balance':balance})
+
 

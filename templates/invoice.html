@@ -8,7 +8,7 @@
 
 
 
-
+    <script src="{% static 'invoice/invoice.js' %}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1071820919"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -43,7 +43,6 @@
 
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40689230-1"></script>
-    <script async src="{% static 'js/main.js' %}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -68,31 +67,821 @@
         fbq('init', '703277390615624');
         fbq('track', 'PageView');
     </script>
-    {% load static %}
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=703277390615624&ev=PageView&noscript=1" /></noscript>
+
+
+
+
+
+
     <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <script
         type="text/javascript">(window.NREUM || (NREUM = {})).init = { ajax: { deny_list: ["bam-cell.nr-data.net"] } }; (window.NREUM || (NREUM = {})).loader_config = { licenseKey: "8a693f45cd", applicationID: "149979790" }; window.NREUM || (NREUM = {}), __nr_require = function (t, e, n) { function r(n) { if (!e[n]) { var i = e[n] = { exports: {} }; t[n][0].call(i.exports, function (e) { var i = t[n][1][e]; return r(i || e) }, i, i.exports) } return e[n].exports } if ("function" == typeof __nr_require) return __nr_require; for (var i = 0; i < n.length; i++)r(n[i]); return r }({ 1: [function (t, e, n) { function r() { } function i(t, e, n, r) { return function () { return s.recordSupportability("API/" + e + "/called"), o(t + e, [u.now()].concat(c(arguments)), n ? null : this, r), n ? void 0 : this } } var o = t("handle"), a = t(10), c = t(11), f = t("ee").get("tracer"), u = t("loader"), s = t(4), d = NREUM; "undefined" == typeof window.newrelic && (newrelic = d); var p = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"], l = "api-", v = l + "ixn-"; a(p, function (t, e) { d[e] = i(l, e, !0, "api") }), d.addPageAction = i(l, "addPageAction", !0), d.setCurrentRouteName = i(l, "routeName", !0), e.exports = newrelic, d.interaction = function () { return (new r).get() }; var m = r.prototype = { createTracer: function (t, e) { var n = {}, r = this, i = "function" == typeof e; return o(v + "tracer", [u.now(), t, n], r), function () { if (f.emit((i ? "" : "no-") + "fn-start", [u.now(), r, i], n), i) try { return e.apply(this, arguments) } catch (t) { throw f.emit("fn-err", [arguments, this, t], n), t } finally { f.emit("fn-end", [u.now()], n) } } } }; a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (t, e) { m[e] = i(v, e) }), newrelic.noticeError = function (t, e) { "string" == typeof t && (t = new Error(t)), s.recordSupportability("API/noticeError/called"), o("err", [t, u.now(), !1, e]) } }, {}], 2: [function (t, e, n) { function r(t) { if (NREUM.init) { for (var e = NREUM.init, n = t.split("."), r = 0; r < n.length - 1; r++)if (e = e[n[r]], "object" != typeof e) return; return e = e[n[n.length - 1]] } } e.exports = { getConfiguration: r } }, {}], 3: [function (t, e, n) { var r = !1; try { var i = Object.defineProperty({}, "passive", { get: function () { r = !0 } }); window.addEventListener("testPassive", null, i), window.removeEventListener("testPassive", null, i) } catch (o) { } e.exports = function (t) { return r ? { passive: !0, capture: !!t } : !!t } }, {}], 4: [function (t, e, n) { function r(t, e) { var n = [a, t, { name: t }, e]; return o("storeMetric", n, null, "api"), n } function i(t, e) { var n = [c, t, { name: t }, e]; return o("storeEventMetrics", n, null, "api"), n } var o = t("handle"), a = "sm", c = "cm"; e.exports = { constants: { SUPPORTABILITY_METRIC: a, CUSTOM_METRIC: c }, recordSupportability: r, recordCustom: i } }, {}], 5: [function (t, e, n) { function r() { return c.exists && performance.now ? Math.round(performance.now()) : (o = Math.max((new Date).getTime(), o)) - a } function i() { return o } var o = (new Date).getTime(), a = o, c = t(12); e.exports = r, e.exports.offset = a, e.exports.getLastTimestamp = i }, {}], 6: [function (t, e, n) { function r(t) { return !(!t || !t.protocol || "file:" === t.protocol) } e.exports = r }, {}], 7: [function (t, e, n) { function r(t, e) { var n = t.getEntries(); n.forEach(function (t) { "first-paint" === t.name ? l("timing", ["fp", Math.floor(t.startTime)]) : "first-contentful-paint" === t.name && l("timing", ["fcp", Math.floor(t.startTime)]) }) } function i(t, e) { var n = t.getEntries(); if (n.length > 0) { var r = n[n.length - 1]; if (u && u < r.startTime) return; var i = [r], o = a({}); o && i.push(o), l("lcp", i) } } function o(t) { t.getEntries().forEach(function (t) { t.hadRecentInput || l("cls", [t]) }) } function a(t) { var e = navigator.connection || navigator.mozConnection || navigator.webkitConnection; if (e) return e.type && (t["net-type"] = e.type), e.effectiveType && (t["net-etype"] = e.effectiveType), e.rtt && (t["net-rtt"] = e.rtt), e.downlink && (t["net-dlink"] = e.downlink), t } function c(t) { if (t instanceof y && !w) { var e = Math.round(t.timeStamp), n = { type: t.type }; a(n), e <= v.now() ? n.fid = v.now() - e : e > v.offset && e <= Date.now() ? (e -= v.offset, n.fid = v.now() - e) : e = v.now(), w = !0, l("timing", ["fi", e, n]) } } function f(t) { "hidden" === t && (u = v.now(), l("pageHide", [u])) } if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) { var u, s, d, p, l = t("handle"), v = t("loader"), m = t(9), g = t(3), y = NREUM.o.EV; if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) { s = new PerformanceObserver(r); try { s.observe({ entryTypes: ["paint"] }) } catch (h) { } d = new PerformanceObserver(i); try { d.observe({ entryTypes: ["largest-contentful-paint"] }) } catch (h) { } p = new PerformanceObserver(o); try { p.observe({ type: "layout-shift", buffered: !0 }) } catch (h) { } } if ("addEventListener" in document) { var w = !1, b = ["click", "keydown", "mousedown", "pointerdown", "touchstart"]; b.forEach(function (t) { document.addEventListener(t, c, g(!1)) }) } m(f) } }, {}], 8: [function (t, e, n) { function r(t, e) { if (!i) return !1; if (t !== i) return !1; if (!e) return !0; if (!o) return !1; for (var n = o.split("."), r = e.split("."), a = 0; a < r.length; a++)if (r[a] !== n[a]) return !1; return !0 } var i = null, o = null, a = /Version\/(\S+)\s+Safari/; if (navigator.userAgent) { var c = navigator.userAgent, f = c.match(a); f && c.indexOf("Chrome") === -1 && c.indexOf("Chromium") === -1 && (i = "Safari", o = f[1]) } e.exports = { agent: i, version: o, match: r } }, {}], 9: [function (t, e, n) { function r(t) { function e() { t(c && document[c] ? document[c] : document[o] ? "hidden" : "visible") } "addEventListener" in document && a && document.addEventListener(a, e, i(!1)) } var i = t(3); e.exports = r; var o, a, c; "undefined" != typeof document.hidden ? (o = "hidden", a = "visibilitychange", c = "visibilityState") : "undefined" != typeof document.msHidden ? (o = "msHidden", a = "msvisibilitychange") : "undefined" != typeof document.webkitHidden && (o = "webkitHidden", a = "webkitvisibilitychange", c = "webkitVisibilityState") }, {}], 10: [function (t, e, n) { function r(t, e) { var n = [], r = "", o = 0; for (r in t) i.call(t, r) && (n[o] = e(r, t[r]), o += 1); return n } var i = Object.prototype.hasOwnProperty; e.exports = r }, {}], 11: [function (t, e, n) { function r(t, e, n) { e || (e = 0), "undefined" == typeof n && (n = t ? t.length : 0); for (var r = -1, i = n - e || 0, o = Array(i < 0 ? 0 : i); ++r < i;)o[r] = t[e + r]; return o } e.exports = r }, {}], 12: [function (t, e, n) { e.exports = { exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart } }, {}], ee: [function (t, e, n) { function r() { } function i(t) { function e(t) { return t && t instanceof r ? t : t ? u(t, f, a) : a() } function n(n, r, i, o, a) { if (a !== !1 && (a = !0), !l.aborted || o) { t && a && t(n, r, i); for (var c = e(i), f = m(n), u = f.length, s = 0; s < u; s++)f[s].apply(c, r); var p = d[w[n]]; return p && p.push([b, n, r, c]), c } } function o(t, e) { h[t] = m(t).concat(e) } function v(t, e) { var n = h[t]; if (n) for (var r = 0; r < n.length; r++)n[r] === e && n.splice(r, 1) } function m(t) { return h[t] || [] } function g(t) { return p[t] = p[t] || i(n) } function y(t, e) { l.aborted || s(t, function (t, n) { e = e || "feature", w[n] = e, e in d || (d[e] = []) }) } var h = {}, w = {}, b = { on: o, addEventListener: o, removeEventListener: v, emit: n, get: g, listeners: m, context: e, buffer: y, abort: c, aborted: !1 }; return b } function o(t) { return u(t, f, a) } function a() { return new r } function c() { (d.api || d.feature) && (l.aborted = !0, d = l.backlog = {}) } var f = "nr@context", u = t("gos"), s = t(10), d = {}, p = {}, l = e.exports = i(); e.exports.getOrSetContext = o, l.backlog = d }, {}], gos: [function (t, e, n) { function r(t, e, n) { if (i.call(t, e)) return t[e]; var r = n(); if (Object.defineProperty && Object.keys) try { return Object.defineProperty(t, e, { value: r, writable: !0, enumerable: !1 }), r } catch (o) { } return t[e] = r, r } var i = Object.prototype.hasOwnProperty; e.exports = r }, {}], handle: [function (t, e, n) { function r(t, e, n, r) { i.buffer([t], r), i.emit(t, e, n) } var i = t("ee").get("handle"); e.exports = r, r.ee = i }, {}], id: [function (t, e, n) { function r(t) { var e = typeof t; return !t || "object" !== e && "function" !== e ? -1 : t === window ? 0 : a(t, o, function () { return i++ }) } var i = 1, o = "nr@id", a = t("gos"); e.exports = r }, {}], loader: [function (t, e, n) { function r() { if (!P++) { var t = M.info = NREUM.info, e = g.getElementsByTagName("script")[0]; if (setTimeout(u.abort, 3e4), !(t && t.licenseKey && t.applicationID && e)) return u.abort(); f(O, function (e, n) { t[e] || (t[e] = n) }); var n = a(); c("mark", ["onload", n + M.offset], null, "api"), c("timing", ["load", n]); var r = g.createElement("script"); 0 === t.agent.indexOf("http://") || 0 === t.agent.indexOf("https://") ? r.src = t.agent : r.src = v + "://" + t.agent, e.parentNode.insertBefore(r, e) } } function i() { "complete" === g.readyState && o() } function o() { c("mark", ["domContent", a() + M.offset], null, "api") } var a = t(5), c = t("handle"), f = t(10), u = t("ee"), s = t(8), d = t(6), p = t(2), l = t(3), v = p.getConfiguration("ssl") === !1 ? "http" : "https", m = window, g = m.document, y = "addEventListener", h = "attachEvent", w = m.XMLHttpRequest, b = w && w.prototype, E = !d(m.location); NREUM.o = { ST: setTimeout, SI: m.setImmediate, CT: clearTimeout, XHR: w, REQ: m.Request, EV: m.Event, PR: m.Promise, MO: m.MutationObserver }; var x = "" + location, O = { beacon: "bam.nr-data.net", errorBeacon: "bam.nr-data.net", agent: "js-agent.newrelic.com/nr-1215.min.js" }, T = w && b && b[y] && !/CriOS/.test(navigator.userAgent), M = e.exports = { offset: a.getLastTimestamp(), now: a, origin: x, features: {}, xhrWrappable: T, userAgent: s, disabled: E }; if (!E) { t(1), t(7), g[y] ? (g[y]("DOMContentLoaded", o, l(!1)), m[y]("load", r, l(!1))) : (g[h]("onreadystatechange", i), m[h]("onload", r)), c("mark", ["firstbyte", a.getLastTimestamp()], null, "api"); var P = 0 } }, {}], "wrap-function": [function (t, e, n) { function r(t, e) { function n(e, n, r, f, u) { function nrWrapper() { var o, a, s, p; try { a = this, o = d(arguments), s = "function" == typeof r ? r(o, a) : r || {} } catch (l) { i([l, "", [o, a, f], s], t) } c(n + "start", [o, a, f], s, u); try { return p = e.apply(a, o) } catch (v) { throw c(n + "err", [o, a, v], s, u), v } finally { c(n + "end", [o, a, p], s, u) } } return a(e) ? e : (n || (n = ""), nrWrapper[p] = e, o(e, nrWrapper, t), nrWrapper) } function r(t, e, r, i, o) { r || (r = ""); var c, f, u, s = "-" === r.charAt(0); for (u = 0; u < e.length; u++)f = e[u], c = t[f], a(c) || (t[f] = n(c, s ? f + r : r, i, f, o)) } function c(n, r, o, a) { if (!v || e) { var c = v; v = !0; try { t.emit(n, r, o, e, a) } catch (f) { i([f, n, r, o], t) } v = c } } return t || (t = s), n.inPlace = r, n.flag = p, n } function i(t, e) { e || (e = s); try { e.emit("internal-error", t) } catch (n) { } } function o(t, e, n) { if (Object.defineProperty && Object.keys) try { var r = Object.keys(t); return r.forEach(function (n) { Object.defineProperty(e, n, { get: function () { return t[n] }, set: function (e) { return t[n] = e, e } }) }), e } catch (o) { i([o], n) } for (var a in t) l.call(t, a) && (e[a] = t[a]); return e } function a(t) { return !(t && t instanceof Function && t.apply && !t[p]) } function c(t, e) { var n = e(t); return n[p] = t, o(t, n, s), n } function f(t, e, n) { var r = t[e]; t[e] = c(r, n) } function u() { for (var t = arguments.length, e = new Array(t), n = 0; n < t; ++n)e[n] = arguments[n]; return e } var s = t("ee"), d = t(11), p = "nr@original", l = Object.prototype.hasOwnProperty, v = !1; e.exports = r, e.exports.wrapFunction = c, e.exports.wrapInPlace = f, e.exports.argsToArray = u }, {}] }, {}, ["loader"]);</script>
 
-    <link rel="shortcut icon" href="https://www.skynova.com/favicon.ico?v=V0001549" />
-    <link rel="stylesheet" type="text/css" href="https://www.skynova.com/public/__common/css/common.css?v=V0001549" />
+    <link rel="shortcut icon" href="https://www.skynova.com/favicon.ico?v=V0001553" />
+    <link rel="manifest" href='data:application/manifest+json,{ "name": "Skynova"}'>
+
+    <link rel="stylesheet" type="text/css" href="https://www.skynova.com/public/__common/css/common.css?v=V0001553" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static 'invoice/style.css' %}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script>
+        var baseHref = 'https://www.skynova.com/';
+    </script>
 
-    <link rel="stylesheet" type="text/css" href="https://www.skynova.com/app/invoices/css/module.css?v=V0001549" />
+
+    <link rel="stylesheet" type="text/css" href="https://www.skynova.com/app/invoices/css/module.css?v=V0001553" />
 
 
-    <script type="text/javascript" src="https://www.skynova.com/ajaxupload.js?v=V0001549"></script>
+    <script type="text/javascript" src="https://www.skynova.com/ajaxupload.js?v=V0001553"></script>
+
+    <style>
+        #save {
+            display: none;
+            border: thin solid #d2d2d2;
+            padding: 20px 26px;
+            background: #f8f8f8;
+        }
+
+        #save b {
+            display: block;
+            font-weight: normal;
+            max-width: 380px;
+            margin: 23px auto 0 auto;
+            padding-right: 50px;
+        }
+
+        #save .form-row {
+            display: block;
+        }
+
+        #save input {
+            font-weight: bold;
+        }
+
+        #save .btn {
+            font-weight: bold;
+        }
+
+        .pub #btnToggleOptions,
+        .outside #btnToggleOptions {
+            display: inline-block;
+            vertical-align: inherit;
+            font-family: inherit;
+            font-size: inherit;
+            text-align: left;
+            line-height: 1.2em;
+        }
+
+        .saving #save {
+            display: block;
+        }
+
+        .isSaving {
+            display: none;
+        }
+
+        .saving .isSaving {
+            display: block;
+        }
+
+        .saving .isWorking {
+            display: none;
+        }
+
+        .saving .btn ins {
+            display: inline-block !important;
+        }
+
+        .option.disabled {
+            color: #999;
+        }
+
+        #insert_balance {
+            display: block;
+            text-align: right;
+            padding-right: 7px;
+        }
+
+        .nav-content .btn {
+            min-width: unset;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .nav-content .minify {
+            width: 108px;
+        }
+
+        .navbar-templates {
+            margin: 1em 0;
+        }
+
+        .navbar-templates td {
+            padding: 0;
+            padding-right: 2px;
+        }
+
+        .navbar-templates td:last-child {
+            padding-right: 0;
+        }
+
+        .navbar-templates .btn {
+            text-shadow: 0 0 0.1px #444;
+        }
+
+        .navbar-templates .btn.disabled {
+            text-shadow: none;
+        }
+
+        .form-invoice.dates input {
+            min-height: 26px;
+        }
+
+        .form-invoice.input-daterange {
+            position: relative;
+            width: 150px;
+            float: right;
+        }
+
+        .form-invoice.input-daterange:before,
+        .form-invoice.input-daterange:after {
+            content: "\e916";
+            display: inline-block;
+            line-height: 27px;
+            font-family: "Material Icons";
+            font-size: 16px;
+            position: absolute;
+            right: 6px;
+            top: 0;
+            color: #54a0e7;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .form-invoice.input-daterange:after {
+            top: auto;
+            bottom: 2px;
+        }
+
+        .form-invoice.input-daterange input {
+            width: 150px;
+            height: 26px;
+            line-height: 26px;
+            min-height: 26px;
+            margin-bottom: 3px;
+        }
+
+        .form-invoice.input-daterange .label {
+            position: absolute;
+            top: 0;
+            right: 157px;
+            white-space: nowrap;
+            font-weight: bold;
+            line-height: 26px;
+        }
+
+        .form-invoice.input-daterange .label.end {
+            top: auto;
+            bottom: 3px;
+        }
+
+        table.sums .sum-number input {
+            height: 20px;
+            min-height: 20px;
+            line-height: 20px;
+        }
+
+        .meta {
+            position: relative;
+        }
+
+        .meta-top-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .logoShown .form-invoice.dates {
+            margin-top: 262px;
+        }
+
+        input[type="date"],
+        .dateInput {
+            -webkit-appearance: textfield;
+            appearance: none;
+            width: 99%;
+        }
+
+        .paper {
+            margin-bottom: 80px;
+        }
+
+        #modePreview {
+            position: relative;
+        }
+
+        #modePreview .paper {
+            width: 800px;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            transform-origin: 0 0;
+        }
+
+
+
+        @media screen and (max-width: 700px) {
+
+            #save b {
+                padding-right: 0;
+            }
+
+            .paper {
+                border: thin solid #d2d2d2;
+                padding: 10px;
+                margin-bottom: 0;
+            }
+
+
+            .nav-content {
+                margin: 1em 0;
+            }
+
+            .nav-content td {
+                padding: 0;
+                padding-right: 2px;
+            }
+
+            .nav-content td:last-child {
+                padding-right: 0;
+            }
+
+            .nav-content .btn {
+                display: inline-block;
+                white-space: nowrap;
+                text-shadow: 0 0 0.1px #444;
+            }
+
+            .nav-content .btn.disabled {
+                text-shadow: none;
+            }
+
+            .nav-content .minify {
+                width: 1%;
+            }
+
+            .nav-content .btn.hidden-small {
+                display: none;
+            }
+
+            .meta {
+                display: block;
+            }
+
+            .meta-top-right {
+                position: static !important;
+                z-index: 0;
+                width: 100% !important;
+            }
+
+            .meta-top-right:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 0;
+                clear: both;
+            }
+
+            .meta-left,
+            .meta-right,
+            .foot,
+            .foot-left,
+            .foot-right {
+                display: block !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .foot-left.notes {
+                padding-right: 0;
+            }
+
+            .foot-right {
+                padding-left: 0;
+                margin-top: 35px;
+            }
+
+            .meta-top-right,
+            .meta-left,
+            .meta-right {
+                margin-bottom: 24px;
+            }
+
+            .meta-right:after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 0;
+                clear: both;
+            }
+
+            .meta-right {
+                padding: 0;
+            }
+
+            .page-header p {
+                line-height: 1.2em !important;
+            }
+
+            #options {
+                font-size: 13px;
+            }
+
+            .options-container .option {
+                display: inline-block !important;
+                float: none !important;
+                white-space: nowrap;
+            }
+
+            .options-container .option input {
+                margin-right: 1px !important;
+            }
+
+            .dropdown-toggle.select.item:after {
+                top: 12px !important;
+                right: 10px !important;
+                min-height: 35px !important;
+                line-height: 20px !important;
+                padding: 8px 0 !important;
+            }
+
+            #invoice_heading {
+                float: none;
+                width: 100%;
+                min-height: 1.75em;
+            }
+
+            #upload_area.empty {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .logoShown input[type="text"].meta-title {
+                margin: 36px 0 10px 0;
+            }
+
+            input[type="text"].meta-title {
+                min-height: auto !important;
+                line-height: 1 !important;
+                width: 100% !important;
+                height: 44px !important;
+                min-height: 44px !important;
+                line-height: 1em !important;
+            }
+
+
+            .logoShown .form-invoice.dates {
+                margin-top: 36px;
+            }
+
+            .form-invoice.dates,
+            .form-invoice.dates tbody,
+            .form-invoice.dates tr,
+            .form-invoice.dates td {
+                display: block;
+                width: 100% !important;
+            }
+
+            .form-invoice.input-daterange {
+                width: 100% !important;
+                float: none !important;
+            }
+
+            .form-invoice.dates .label-header,
+            .form-invoice.input-daterange .label {
+                display: block;
+                width: 100% !important;
+                position: static;
+                text-align: left !important;
+                font-size: 90%;
+                line-height: 1 !important;
+                margin: 0;
+                padding: 0 0 3px 0;
+            }
+
+            .form-invoice.dates input,
+            .form-invoice.input-daterange .form-control {
+                position: static;
+                width: 100% !important;
+                margin: 0 0 8px 0 !important;
+            }
+
+            .form-invoice.input-daterange:before,
+            .form-invoice.input-daterange:after {
+                min-height: 35px !important;
+                line-height: 35px !important;
+                display: block;
+                width: 30px;
+                text-align: right;
+            }
+
+            .form-invoice.input-daterange:before {
+                top: 19px;
+                right: 12px;
+            }
+
+            .form-invoice.input-daterange:after {
+                bottom: 12px;
+                right: 12px;
+            }
+
+            .form-invoice .icon-calendar:after {
+                line-height: 40px !important;
+            }
+
+            #modeEdit .table-record .hidden-large {
+                display: initial;
+            }
+
+            #modeEdit .table-record .hidden-small {
+                display: none !important;
+            }
+
+            #dataTable {
+                margin-top: 0;
+            }
+
+            #dataTable .dropdown-toggle.item {
+                width: unset;
+            }
+
+            .table-record,
+            .table-record tbody,
+            .table-record tr,
+            .table-record td {
+                display: block;
+                width: 100% !important;
+                border-color: #d4d4d4;
+            }
+
+            .record-sum {
+                border-color: #d4d4d4;
+            }
+
+            #modeEdit .table-record td {
+                border-bottom: 0;
+                border-top: 0;
+                padding: 3px;
+            }
+
+            #modeEdit .table-record td.select {
+                padding-top: 12px;
+            }
+
+            #modeEdit .table-record td.amount {
+                padding-bottom: 12px;
+            }
+
+            #modeEdit .table-record tr td:first-child {
+                border-top: 5px solid #54a0e7;
+            }
+
+            #modeEdit .table-record tr td:last-child {
+                border-bottom: thin solid #d4d4d4;
+            }
+
+            .table-record label,
+            .table-record input,
+            .table-record select,
+            .table-record textarea {
+                display: inline-block !important;
+                vertical-align: top;
+            }
+
+            .table-record label {
+                text-align: right;
+                width: 36%;
+                line-height: 40px;
+                padding-right: 4px;
+            }
+
+            .table-record input,
+            .table-record select,
+            .table-record textarea {
+                width: 62% !important;
+                border: thin solid #aaa !important;
+                border-color: #939393 #c1c1c1 #c1c1c1 #939393 !important;
+            }
+
+            #modeEdit .noborder:focus,
+            #modeEdit .noborder:active {
+                border: thin solid #aaa !important;
+                border-color: #3892db #9edbff #9edbff #3892db !important;
+            }
+
+            .table-record .zap {
+                position: relative;
+            }
+
+            .table-record .btn-zap {
+                position: absolute;
+                top: 1px;
+                left: 1px;
+                z-index: 1;
+            }
+
+            #modeEdit .table-record td.focus,
+            #modeEdit .table-record td.amount,
+            #modeEdit .table-record td.amount.focus {
+                background-color: transparent !important;
+            }
+
+            .table-record td.amount input {
+                background-color: #f8f8f8 !important;
+            }
+
+            .sum-subtotal td,
+            .sum-total td,
+            .sum-balance td {
+                border-top: thin solid #d4d4d4 !important;
+            }
+
+            table.sums .sum-number input[type="text"] {
+                height: 28px !important;
+                min-height: 28px !important;
+                line-height: 28px !important;
+            }
+
+        }
+
+        @media print {
+
+            .hidden-print,
+            #save,
+            .alert {
+                display: none !important;
+            }
+
+            #modePreview .paper,
+            #modePreview .container-zoom {
+                transform: none !important;
+                position: static !important;
+            }
+
+            #modePreview {
+                padding-bottom: 0 !important;
+            }
+
+            #coverpage .cover,
+            #toc {
+                width: 100% !important;
+                page-break-after: always;
+            }
+
+            .container,
+            .margin {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .page {
+                border: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            .page-header {
+                display: none;
+            }
+
+        }
+
+
+        /**/
+
+        .pub-template.industry top-content {
+            display: block;
+            margin: 0 0 2.5em 0;
+        }
+
+        .pub-template.industry bottom-content {
+            display: block;
+            margin: 2.5em 0;
+        }
+
+        .industry top-content h2,
+        .industry top-content h3,
+        .industry bottom-content h2,
+        .industry bottom-content h3 {
+            line-height: 1.25;
+            margin: 1.5em 0 0.75em;
+        }
+
+        .industry top-content h2,
+        .industry bottom-content h2 {
+            font-size: 21px;
+        }
+
+        .industry top-content h3,
+        .industry bottom-content h3,
+        .industry top-content ol>li:before,
+        .industry bottom-content ol>li:before {
+            font-size: 17px;
+        }
+
+        .industry top-content a,
+        .industry bottom-content a {
+            text-decoration: none;
+            color: #2080dc;
+        }
+
+        .industry top-content ol h3,
+        .industry bottom-content ol h3 {
+            margin-top: 0;
+        }
+
+        .industry .title-morepages {
+            margin: 2em 0 0.75em;
+            line-height: 1.25;
+        }
+
+        .industry top-content ol,
+        .industry bottom-content ol {
+            margin: 2.5em 0;
+            padding: 0 0 0 26px;
+            list-style: none;
+            counter-reset: article-counter;
+        }
+
+        .industry top-content ol>li,
+        .industry bottom-content ol>li {
+            position: relative;
+            counter-increment: article-counter;
+            margin: 1.5em 0 0.75em 0;
+        }
+
+        .industry top-content ol>li:before,
+        .industry bottom-content ol>li:before {
+            content: counter(article-counter) ". ";
+            position: absolute;
+            left: -26px;
+            line-height: 1.25;
+        }
+
+        .industry top-content .list-skyblue,
+        .industry bottom-content .list-skyblue {
+            padding: 0 0 0 26px;
+            margin: 1.5em 0;
+            list-style: none;
+        }
+
+        .industry top-content .list-skyblue>li,
+        .industry bottom-content .list-skyblue>li {
+            display: block;
+            position: relative;
+            margin: 1.5em 0;
+        }
+
+        .industry top-content .list-skyblue>li:before,
+        .industry bottom-content .list-skyblue>li:before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            position: absolute;
+            left: -15px;
+            top: 8px;
+            background-color: #2080dc;
+        }
+
+        .industry top-content p,
+        .industry bottom-content p {
+            margin: 0.75em 0;
+        }
+
+        .industry top-content p:last-child {
+            padding-bottom: 0.3px;
+        }
+
+        .industry top-content ol ul,
+        .industry bottom-content ul ul {
+            margin: 1em 0;
+        }
+
+        .industry img.shadow {
+            display: block;
+            margin: 2.5em auto;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, .2), 0 0 2px rgba(0, 0, 0, .2);
+            width: 100%;
+            max-width: 390px;
+        }
+
+        .morepages {
+            margin-top: 2em;
+        }
+
+        .morepages:after {
+            content: '';
+            display: table;
+            width: 100%;
+            height: 0;
+            clear: both;
+        }
+
+        .pub-template.industry .link-morepages {
+            display: block;
+            float: left;
+            width: 50%;
+            padding: 0 5px 5px 0;
+            color: inherit;
+            text-decoration: none !important;
+        }
+
+        .link-morepages em {
+            display: block;
+            padding: 8px;
+            border: 1px solid #54a0e7;
+            border-radius: 5px;
+            font-weight: normal;
+            font-style: normal;
+            position: relative;
+        }
+
+        .link-morepages:hover em {
+            background-color: #f8f8f8;
+            box-shadow: 1.4px 1.4px 2px rgba(0, 0, 0, 0.15);
+        }
+
+        .link-morepages .material-icons {
+            display: block;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            margin-top: -10px;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .template-preview .page-header p {
+            margin: 16px 0 -0.75px 0;
+        }
+
+
+        @media screen and (max-width: 700px) {
+
+            .pub-template.industry .link-morepages {
+                width: 100%;
+                padding: 0 0 10px 0;
+            }
+
+            .industry top-content h2,
+            .industry bottom-content h2 {
+                font-size: 22px;
+            }
+
+            .industry top-content h3,
+            .industry bottom-content h3,
+            .industry top-content ol>li:before,
+            .industry bottom-content ol>li:before {
+                font-size: 19px;
+            }
+
+        }
+    </style>
+
+
+
+    <!-- local styles -->
+    <style>
+        .pub.pub-template .page-header {
+            margin-bottom: 20px;
+        }
+
+        .pub.pub-template .page-header h1 {
+            color: #8B0000;
+            margin: 0 0 0.75em 0;
+            line-height: 1;
+            padding-top: 1px;
+        }
+
+        .pub.pub-template .page-header p {
+            line-height: 17px;
+            margin: 0 0 0.75em 0;
+        }
+
+        .page-header p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+
 </head>
+
 <body class="pub pub-template ">
+
 <script>
     function getCookie(name) {
         let cookieValue = null;
@@ -112,81 +901,797 @@
 
     const csrftoken = getCookie('csrftoken');
 </script>
-    <header class="header">
-    <h2 class="u-name"><img class="logo11" src="{% static "logo11.jpg" %}"> Happy<b>Tad</b>
-      <label for="checkbox">
-        <i id="navbtn" class="fa fa-bars" aria-hidden="true"></i>
-      </label>
-    </h2>
-		<i class="fa fa-user" aria-hidden="true"></i>
-	</header>
-    <nav class="side-bar">
-        <ul>
-            <button class="button-9" role="button">Login</button>
-            <li>
-                <a href="{% url "home" %}">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i>
-                    <span>Invoice</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-regular fa-cart-flatbed"></i>
-                    <span>Invest report</span>
-                </a>
-            </li>
-            <li>
-                <a href="{% url "calculator_page" %}">
-                    <i class="fa-solid fa-calculator"></i>
-                    <span>Tax calculator</span>
-                </a>
-            </li>
-            <li>
-                <a href="{%  url "blogpage" %}">
-                    <i class="fa-solid fa-credit-card"></i>
 
-                    <span>Free advice</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-address-book"></i>
-                    <span>Contact</span>
-                </a>
-            </li>
-            <!-- HTML !-->
-        </ul>
-    </nav>
-   <div class="page-body">
-        <div class="container">
-            <div class="page-header" style="margin-top:230px">
+    <style>
+        #page-menu {
+            position: relative;
+            border-top: thin solid #ededed;
+            border-bottom: thin solid #e2e2e2;
+            background: #fff;
+            background: linear-gradient(to bottom, #fff 0%, #fff 49%, #f8f8f8 50%, #eee 100%);
+            text-align: left;
+            z-index: 1;
+            line-height: 1;
+            font-size: 13px;
+        }
+
+        #page-menu .container {
+            white-space: nowrap;
+            position: relative;
+            z-index: +1;
+        }
+
+        #page-menu:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 0;
+            clear: both;
+        }
+
+        #page-menu .menu-item {
+            border-right: 1px solid #ddd !important;
+            display: block;
+            float: left;
+            padding: 6px 20px 7.5px 20px;
+            line-height: inherit;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #page-menu .menu-item:first-child {
+            border-left: 1px solid #ddd;
+        }
+
+        #page-menu .menu-item:hover {
+            color: #000;
+        }
+
+        #page-menu .menu-item.active,
+        #page-menu .menu-item.active:hover {
+            position: relative;
+            background: #878787;
+            background: linear-gradient(to bottom, #878787 0%, #676767 100%);
+            color: #ffffff !important;
+        }
+
+        #page-menu .menu-item.active:after {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            margin-left: -5px;
+            z-index: -999;
+            background: #676767;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .pub-home {
+            margin-left: 20px;
+        }
+
+        .margin {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            width: 100%;
+            height: 0;
+            clear: both;
+        }
+
+        .alert ol,
+        .alert ul {
+            margin: 0.5em 0;
+        }
+
+        .alert ol:last-child,
+        .alert ul:last-child {
+            margin-bottom: 0;
+        }
+
+        .alert li {
+            margin-bottom: 0.5em;
+        }
+
+
+        .container {
+            padding: 0;
+        }
+
+        @media screen and (min-width: 700px) and (max-width: 800px) {
+
+            .container,
+            .margin {
+                width: 100%;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            #modeEdit.paper {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        @media screen and (min-width: 420px) and (max-width: 700px) {
+
+            .container,
+            .margin {
+                width: 100%;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            #modeEdit.paper {
+                padding-left: 8%;
+                padding-right: 8%;
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+
+            .container,
+            .margin {
+                width: 100%;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+
+
+        .btn,
+        .btn[disabled],
+        .btn[disabled]:hover,
+        .btn[disabled]:focus,
+        .btn.disabled {
+            box-shadow: none;
+            border: thin solid #aaa;
+        }
+
+        .btn[disabled],
+        .btn[disabled]:hover,
+        .btn[disabled]:focus,
+        .btn.disabled {
+            border-color: #d2d2d2;
+        }
+
+        .btn:active,
+        .btn:focus {
+            box-shadow: none !important;
+            border-color: #317ebd !important;
+        }
+
+        .btn.btn-blue {
+            border-color: #0c4072;
+        }
+
+        #header {
+            font-size: 13px;
+        }
+
+        .logo.container {
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        .logo-small {
+            display: none;
+        }
+
+        .logo-large {
+            display: block;
+            padding: 25px 0 7.5px 0;
+        }
+
+        #sky_text_sm,
+        #sky_swoosh_sm {
+            float: left;
+        }
+
+
+        .link-login {
+            display: block;
+            line-height: 1;
+            color: #333;
+            padding: 6px 14px 6px 10px;
+        }
+
+        .link-register {
+            display: inline-block;
+            border: 1px solid #206ab3;
+            color: #fff;
+            background-color: #1b5fa1;
+            border-radius: 8px;
+            padding: 6px 12px;
+            line-height: 1;
+        }
+
+        .hidden-large {
+            display: none;
+        }
+
+        @media screen and (max-width: 800px) {
+
+            .hidden-large {
+                display: initial;
+            }
+
+            table.hidden-large {
+                display: table;
+            }
+
+            tr.hidden-large {
+                display: table-row;
+            }
+
+            td.hidden-large {
+                display: table-cell;
+            }
+
+            .hidden-small {
+                display: none !important;
+            }
+
+            body {
+                font-family: sans-serif;
+                font-size: 16px;
+                color: #333;
+                line-height: 1.4em;
+            }
+
+            p {
+                line-height: 1.4em;
+            }
+
+            .page-body>.container {
+                min-height: calc(100vh - 150px)
+            }
+
+            .btn {
+                font-size: 90%;
+                padding: 0 10px;
+                line-height: 36px;
+            }
+
+            .btn.btn-xs {
+                font-size: 86%;
+                line-height: 30px;
+                padding: 0 10px;
+            }
+
+            .alert {
+                padding-right: 30px;
+            }
+
+            .alert ol,
+            .alert ul {
+                padding: 0 0 0 30px;
+            }
+
+            .alert li {
+                padding: 0;
+                margin-bottom: 0.25em;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="number"],
+            input[type="password"],
+            input[type="date"],
+            input[type="tel"] {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                height: 40px !important;
+                min-height: 40px !important;
+                line-height: 1em !important;
+                padding: 13px 6px 12px 6px !important;
+            }
+
+            input[type="password"] {
+                font-family: inherit !important;
+                font-size: inherit !important;
+            }
+
+            textarea {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                min-height: 38px !important;
+                line-height: 20px !important;
+                padding-top: 9px !important;
+                padding-bottom: 9px !important;
+            }
+
+            select {
+                height: 40px !important;
+                min-height: 40px !important;
+                line-height: normal !important;
+                padding: 6px !important;
+            }
+
+            input[type="text"].lg {
+                height: 46px !important;
+                min-height: 46px;
+            }
+
+            .index-gradient {
+                margin-top: -10px;
+            }
+
+            .form-row {
+                margin-bottom: 10px;
+            }
+
+            .form-label {
+                display: block;
+                font-size: 90%;
+                text-align: left;
+                line-height: 1.2em;
+                padding-bottom: 3px;
+            }
+
+            #header {
+                padding-top: 0;
+                font-size: 13.5px;
+            }
+
+            .logo.container {
+                margin: 15px auto;
+            }
+
+            .logo-small,
+            .logo-small svg {
+                display: block;
+            }
+
+            .logo-large {
+                display: none;
+            }
+
+            .pub-home {
+                margin-left: 0;
+            }
+
+            #page-menu .menu-item {
+                text-shadow: 0 0 0.5px rgba(0, 0, 0, .4);
+                color: #2f2f2f;
+                padding: 7px 8px;
+            }
+
+            #page-menu .menu-item {
+                line-height: 1.5em;
+            }
+
+            #header,
+            #page-menu,
+            .menu-item,
+            .page-footer {
+                font-size: 13.6px;
+            }
+
+            .page-footer {
+                border-top: thin solid #d2d2d2;
+                background-color: #fafafa;
+                margin-top: 3em;
+            }
+
+            .page-footer .container {
+                width: auto !important;
+                padding: 2px 0;
+                border: 0;
+                border-top: 0 !important;
+            }
+
+            .page-footer .footer-links a {
+                text-decoration: none;
+            }
+
+            .page-footer .copyright {
+                margin-top: 1px;
+            }
+
+            .link-footer {
+                display: inline-block;
+                padding: 8px;
+                color: #888;
+                text-decoration: none;
+                font-size: inherit;
+            }
+
+            .copyright {
+                display: none;
+            }
+
+        }
+
+        @media screen and (max-width: 368px) {
+            #page-menu .menu-item {
+                padding: 7px 4px;
+            }
+
+            .footer-links a {
+                padding: 10px 5px;
+            }
+        }
+
+        .page-content {
+            max-width: 590px;
+            padding-top: 5px;
+        }
+
+        .form-pub {
+            display: table;
+            width: 600px;
+            max-width: 90%;
+            max-width: calc(100vw - 40px);
+        }
+
+        .form-pub.sm {
+            width: 440px;
+        }
+
+        .form-pub-row {
+            display: table-row;
+        }
+
+        .form-pub-label {
+            display: table-cell;
+            vertical-align: top;
+            width: 134px;
+            text-align: right;
+            padding-right: 0.5em;
+            line-height: 29px;
+        }
+
+        .form-pub-label-inline {
+            display: table-cell;
+            width: 1%;
+            vertical-align: top;
+            padding-right: 0.5em;
+            line-height: 32px;
+            white-space: nowrap;
+        }
+
+        .form-pub-input {
+            display: table-cell;
+            vertical-align: top;
+            padding-bottom: 16px;
+        }
+
+        .form-pub-forgot {
+            display: table-cell;
+            vertical-align: top;
+            padding-left: 134px;
+            line-height: 34px;
+        }
+
+        .form-pub-submit {
+            display: table-cell;
+            text-align: right;
+        }
+
+        .form-pub-submit .btn {
+            min-width: 120px;
+        }
+
+        .form-pub-btn-inline {
+            display: table-cell;
+            padding-left: 4px;
+        }
+
+        .form-pub input {
+            font-weight: bold;
+            font-family: verdana;
+        }
+
+        .menu-item.intemp {
+            position: relative;
+        }
+
+        .menu-item.intemp b {
+            font-weight: normal;
+        }
+
+        @media screen and (max-width: 800px) {
+
+            .form-pub {
+                max-width: 100%;
+            }
+
+            .form-pub,
+            .form-pub-row,
+            .form-pub-label,
+            .form-pub-label-inline,
+            .form-pub-input,
+            .form-pub-btn-inline {
+                display: block;
+            }
+
+            .form-pub-row {
+                position: relative;
+            }
+
+            .form-pub-label {
+                font-size: 90%;
+                text-align: left;
+                line-height: 1.2em;
+                padding-bottom: 3px;
+                vertical-align: middle;
+            }
+
+            .form-pub-input {
+                padding-bottom: 11px;
+            }
+
+            .form-pub-forgot {
+                padding-left: 0;
+                line-height: 36px;
+            }
+
+            .form-pub-submit {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .form-pub-submit .btn {
+                width: unset;
+            }
+
+            .form-pub input {
+                font-family: sans-serif;
+            }
+
+            .form-pub-btn-inline {
+                padding: 0;
+            }
+
+            .form-pub-btn-inline .btn {
+                float: right;
+            }
+
+            .form-pub-btn-inline:after {
+                content: "";
+                display: table;
+                width: 100%;
+                height: 0;
+                clear: both;
+            }
+
+            .menu-item.intemp b {
+                display: block;
+                position: absolute;
+                bottom: -22px;
+                right: 0;
+                z-index: -1;
+                color: #fff;
+                text-shadow: none !important;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                clip: rect(0px, 10px, 10px, 10px);
+            }
+
+        }
+
+        @media screen and (max-width: 360px) {
+            .hidden-xs {
+                display: none !important;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .menu-item.templates {
+                display: none;
+            }
+        }
+    </style>
+
+
+
+
+    <div id="header">
+
+        <table class="logo container">
+            <tr>
+                <td>
+                    <a class="logo-large" href="/"><img src="/images/logo_skynova.svg" alt="skynova.com"></a>
+                    <a class="logo-small" href="/">
+
+                        <svg version="1.1" id="sky_text_sm" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="118px" height="27px"
+                            viewBox="0 0 118 27" enable-background="new 0 0 118 27" xml:space="preserve">
+                            <g>
+                                <path fill="#2C2C2C" d="M7.18,7.29c0.486,0.081,0.918,0.189,1.106,0.189c0.271,0,0.486-0.081,0.729-0.189
+		c0.242-0.08,0.485-0.161,0.729-0.161c1.241,0,2.483,2.483,2.483,3.59c0,0.729-0.621,1.269-1.322,1.269
+		c-1.539,0-2.402-2.133-3.591-2.133c-0.485,0-0.972,0.405-0.972,0.918c0,1.728,5.938,2.052,5.938,6.235
+		c0,2.537-2.456,4.292-5.264,4.292c-0.54,0-1.322-0.081-1.997-0.189c-0.675-0.08-1.269-0.161-1.431-0.161
+		c-0.189,0-0.351,0.026-0.54,0.054c-0.162,0.027-0.324,0.054-0.513,0.054c-0.54,0-0.81-0.081-1.188-0.513
+		C0.675,19.788,0,18.25,0,17.224c0-0.701,0.242-1.269,1.025-1.269c1.188,0,2.268,2.673,3.779,2.673c0.54,0,1.053-0.271,1.053-0.864
+		c0-1.593-5.291-1.781-5.291-6.235c0-2.699,2.214-4.399,4.994-4.399C6.101,7.129,6.667,7.183,7.18,7.29z" />
+                                <path fill="#2C2C2C"
+                                    d="M22.113,16.819c-0.1-0.162-0.699-1.08-0.949-1.08c-0.274,0-0.249,0.594-0.249,0.756
+		c-0.075,2.402,1.023,1.593,1.023,2.861c0,0.756-0.174,1.862-4.069,1.862c-2.048,0-4.369,0.081-4.369-1.7
+		c0-1.296,1.323-0.352,1.398-2.618c0.075-1.89,0.199-4.454,0.199-5.642v-3.86c0-2.187-1.923-0.729-1.923-2.268
+		C13.175,3.322,18.817,2,20.141,2c0.674,0,0.725,0.432,0.699,1.025l-0.125,5.723c-0.05,1.728-0.05,2.402,0.549,2.402
+		c0.399,0,1.997-0.918,1.997-1.322c0-0.378-0.499-0.594-0.499-1.134c0-1.404,2.547-1.484,3.42-1.484c1.023,0,3.745,0.026,3.745,1.7
+		c0,1.215-0.923,0.647-2.422,1.646c-0.25,0.135-1.223,0.675-1.223,0.999c0,0.675,2.921,4.562,3.396,5.183
+		c1.124,1.512,2.497,1.484,2.497,2.618c0,0.837-0.575,1.565-2.497,1.565h-3.52c-0.999,0-1.124-0.054-1.724-0.891L22.113,16.819z" />
+                                <path fill="#2C2C2C" d="M43.734,18.654c-1.322,3.59-3.05,7.1-7.45,7.1c-1.943,0-4.237-0.999-4.237-3.239
+		c0-1.35,1.025-2.483,2.402-2.483c2.51,0,1.809,2.861,2.915,2.861c0.729,0,1.053-0.702,1.053-1.323c0-0.756-0.54-1.781-0.864-2.456
+		l-3.778-7.909c-0.513-1.079-2.052-0.756-2.052-1.997c0-0.81,0.486-1.997,6.182-1.997c1.025,0,3.455,0.107,3.455,1.646
+		c0,0.729-0.621,0.944-0.621,1.592c0,1.026,1.188,2.916,1.646,2.916c0.81,0,1.377-1.863,1.377-2.511
+		c0-1.215-0.864-1.134-0.864-2.052c0-1.431,2.537-1.592,3.509-1.592c0.892,0,2.889,0.135,2.889,1.376
+		c0,1.593-1.619,0.891-2.564,2.483c-0.594,0.945-1.025,2.133-1.403,3.186L43.734,18.654z" />
+                                <path fill="#2C2C2C" d="M57.343,16.414c0,2.618,0.918,2.159,0.918,3.186c0,1.673-3.591,1.619-4.697,1.619
+		c-1.079,0-3.833,0-3.833-1.619c0-1.296,1.242-0.136,1.323-2.78l0.107-4.049c0.054-1.998-1.593-1.351-1.593-2.78
+		c0-1.431,6.209-2.78,6.749-2.78c0.594,0,0.972,0.513,0.972,1.053c0,0.161-0.027,0.323-0.027,0.485c0,0.324,0.135,0.702,0.54,0.702
+		c0.432,0,0.675-0.567,1.215-1.134c0.539-0.54,1.35-1.106,2.888-1.106c5.588,0,4.643,5.479,4.913,9.582
+		c0.135,2.133,1.241,1.646,1.241,2.808c0,0.485,0.108,1.619-4.967,1.619c-0.972,0-3.563,0.054-3.563-1.458
+		c0-0.972,0.891-0.513,1.025-2.267c0.135-1.917,0.891-6.235-1.646-6.235c-1.728,0-1.565,1.862-1.565,3.077V16.414z" />
+                                <path fill="#2C2C2C" d="M68.82,14.687c0-4.832,4.237-7.558,8.691-7.558c4.724,0,7.423,3.697,7.423,7.045
+		c0,4.427-4.751,7.126-8.719,7.126C72.221,21.3,68.82,18.951,68.82,14.687z M76.351,10.313c-0.891,0-1.376,0.837-1.322,1.62
+		c0.107,1.7,0.594,5.857,2.456,5.965c1.026,0.055,1.242-0.81,1.242-1.673C78.727,15.011,78.187,10.313,76.351,10.313z" />
+                                <path fill="#2C2C2C" d="M87.53,10.935c-0.783-1.484-2.294-0.647-2.294-2.105c0-0.675,0.351-1.619,5.425-1.619
+		c0.945,0,4.563-0.055,4.563,1.376c0,0.891-1.026,1.08-1.026,1.782c0,0.62,0.999,2.645,1.674,2.645c0.918,0,1.862-2.294,1.862-2.834
+		c0-0.675-0.918-0.944-0.918-1.728c0-1.35,2.97-1.241,3.779-1.241c0.783,0,2.808,0,2.808,1.188c0,1.296-1.755,0.701-2.538,2.213
+		l-4.427,8.611c-0.891,1.7-1.619,2.078-2.24,2.078c-1.053,0-1.728-1.161-2.159-1.971L87.53,10.935z" />
+                                <path fill="#2C2C2C" d="M117.308,14.471c0,4.751,1.62,2.159,1.62,3.617c0,1.538-2.105,3.212-4.076,3.212
+		c-2.133,0-2.187-1.377-2.861-1.377c-0.323,0-0.675,0.352-1.269,0.675c-0.594,0.352-1.403,0.702-2.646,0.702
+		c-2.24,0-4.48-1.188-4.48-3.86c0-1.916,1.836-4.291,6.586-4.291c0.837,0,1.215,0.054,1.215-0.918c0-0.891-0.027-2.754-1.269-2.754
+		c-1.619,0-1.781,2.916-4.184,2.916c-0.864,0-1.512-0.621-1.512-1.485c0-2.294,4.562-3.778,7.126-3.778
+		c1.538,0,5.749,0.594,5.749,4.643V14.471z M109.21,16.846c0,0.702,0.378,1.458,1.161,1.458c1.025,0,1.106-1.106,1.106-1.917
+		c0-0.594,0.027-1.269-0.729-1.269C109.831,15.118,109.21,15.982,109.21,16.846z" />
+                            </g>
+                        </svg>
+
+
+                        <svg version="1.1" id="sky_swoosh_sm" class="hidden-xs" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="55px" height="27px"
+                            viewBox="0 0 55 27" enable-background="new 0 0 55 27" xml:space="preserve">
+                            <g>
+                                <g>
+
+                                    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-163.7925"
+                                        y1="125.873" x2="-163.7925" y2="118.0381"
+                                        gradientTransform="matrix(1 0 0 -1 194 132)">
+                                        <stop offset="0.1064" style="stop-color:#23B5E9" />
+                                        <stop offset="0.2426" style="stop-color:#23B5E9" />
+                                        <stop offset="0.3301" style="stop-color:#22ABE0" />
+                                        <stop offset="0.5443" style="stop-color:#2098D0" />
+                                        <stop offset="0.7649" style="stop-color:#1F8DC6" />
+                                        <stop offset="1" style="stop-color:#1F89C3" />
+                                    </linearGradient>
+                                    <path fill="url(#SVGID_1_)" d="M19.456,13.547c2.486-0.408,5.395-1.402,8.764-2.555c2.891-0.988,6.168-2.109,9.867-3.098
+			c3.103-0.828,6.209-1.082,8.766-1.098c-0.608-0.113-1.23-0.223-1.854-0.325c-4.15-0.687-7.236-0.269-10.775,0.562
+			c0,0-3.796,1.113-4.777,1.457c-0.981,0.343-5.32,2.105-6.845,2.744c-3.113,1.305-5.167,2.068-7.184,2.477
+			c-0.494,0.101-1.14,0.18-1.854,0.241C15.294,13.996,17.29,13.902,19.456,13.547z" />
+
+                                    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="-163.0737"
+                                        y1="124.2656" x2="-163.0737" y2="114"
+                                        gradientTransform="matrix(1 0 0 -1 194 132)">
+                                        <stop offset="0.1064" style="stop-color:#23B5E9" />
+                                        <stop offset="0.2426" style="stop-color:#23B5E9" />
+                                        <stop offset="0.3301" style="stop-color:#22ABE0" />
+                                        <stop offset="0.5443" style="stop-color:#2098D0" />
+                                        <stop offset="0.7649" style="stop-color:#1F8DC6" />
+                                        <stop offset="1" style="stop-color:#1F89C3" />
+                                    </linearGradient>
+                                    <path fill="url(#SVGID_2_)" d="M53.738,8.268c-0.861-0.145-2.39-0.361-4.313-0.469C46.658,7.645,42.486,7.692,38.341,8.8
+			c-3.67,0.981-6.93,2.095-9.806,3.079c-3.409,1.164-6.354,2.172-8.92,2.594c-1.935,0.316-3.729,0.43-5.303,0.43
+			c-1.584,0-2.947-0.114-4.001-0.25c-1.125-0.144-2.026-0.324-2.656-0.473c-0.498,0.004-0.802,0.002-0.802,0.002
+			s5.479,1.199,7.5,1.355c2.023,0.156,4.494,0.003,6.385-0.207c3.298-0.371,5.617-0.991,8.566-1.514
+			c2.949-0.521,4.589-0.715,8.885-0.348c2.283,0.196,3.938,0.817,6.424,2.539c2.289,1.584,2.385,1.943,2.385,1.992
+			c0.008-0.083,0.117-1.16,0.47-2.896c0.365-1.809,1.806-3.166,3.252-4.189C52.165,9.89,55,8.58,55,8.58S54.532,8.459,53.738,8.268z
+			" />
+                                </g>
+                                <path opacity="0.8" fill="#15499A" enable-background="new    " d="M53.738,8.268c-0.466-0.078-1.134-0.178-1.948-0.27
+		c-2.403,2.211-7.091,4.124-13.253,5.511c2.104,0.229,3.72,0.867,6.075,2.497c2.289,1.586,2.385,1.945,2.385,1.994
+		c0.008-0.084,0.117-1.16,0.47-2.896c0.365-1.809,1.806-3.167,3.252-4.189C52.165,9.889,55,8.578,55,8.578
+		S54.532,8.459,53.738,8.268z" />
+                            </g>
+                        </svg>
+                    </a>
+                </td>
+                <td style="width:.01%; white-space:nowrap">
+                    <a href="/login" class="link-login hidden-large">Login</a>
+                </td>
+                <td style="width:.01%; white-space:nowrap">
+                    <a href="/signup" class="link-register hidden-large">Sign Up</a>
+                </td>
+            </tr>
+        </table>
+
+
+        <div id="page-menu">
+            <div class="menu container">
+                <a href="/" class="menu-item pub-home ">Home</a>
+                <a href="#" class="menu-item intemp active">Invoice <span
+                        class="hidden-xs">Template</span></a>
+                <a href="{% url 'calculator_page' %}" class="menu-item templates ">Cashbook</a>
+                <a href="{% url 'register' %}" class="menu-item  hidden-small">Sign Up</a>
+                <a href="{% url 'login' %}" class="menu-item  hidden-small">Login</a>
             </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="page-body">
+        <div class="container">
+
+            <div class="page-header">
+                <div class="isWorking">
+                    <h1>Free Printable Invoice</h1>
+                    <p>To create a free invoice, just fill out the template below. To print, download or send your
+                        invoice for free, click the save button.</p>
+                    <p class="hidden-small">If you need more options, for example to upload a logo, click the link
+                        below.</p>
+                </div>
+
+                <div class="isSaving">
+                    <h1>Save Invoice &amp; Create Free Account</h1>
+                    <p>To print, download or send your invoice, you first have to save it. To save your invoice, enter
+                        your e-mail address and a password below - and click Save.</p>
+                </div>
+            </div>
+
+
+
+
             <div class="feedback-messages">
+
                 <div class="alert alert-danger " id="pageError">
                     <button type="button" class="close" aria-hidden="true" data-dismiss="alert"></button>
                     <span class="msg"></span>
                 </div>
+
                 <div class="alert alert-success " id="pageSuccess">
                     <button type="button" class="close" aria-hidden="true" data-dismiss="alert"></button>
                     <span class="msg"></span>
                 </div>
+
                 <div class="alert alert-warning " id="pageWarning">
                     <button type="button" class="close" aria-hidden="true" data-dismiss="alert"></button>
                     <span class="msg"></span>
                 </div>
+
                 <div class="alert alert-info " id="pageInfo">
                     <button type="button" class="close" aria-hidden="true" data-dismiss="alert"></button>
                     <span class="msg"></span>
                 </div>
+
             </div>
 
 
+
+            <form id="invoice_form" name="invoice_form" action="" method="post" enctype="multipart/form-data">
+
+
+
+
+
+
+
+
+
+                <div class="alert alert-info"><span class="hidden-small">Want to customize your invoice? </span><button
+                        type="button" id="btnToggleOptions">Show Customization Options</button></div>
                 <div id="options" class="hidden-print">
                     <div class="options-container">
                         <label class="option label-checkbox">
@@ -204,8 +1709,11 @@
                         </label>
                     </div>
                 </div>
+
+
                 <table class="navbar-templates hidden-large">
-                    <tr >
+                    <tr>
+
                         <td class="minify">
                             <button type="button" class="btn btnPreview">View</button>
                         </td>
@@ -222,13 +1730,19 @@
                                 onclick="alert('Please save your invoice before recording payments.')">Payments</button>
                         </td>
                         <td></td>
-                        <td class="minify" id="Savebutton">
-                            <button type="button" class="btn toggleSaveBox" onclick="invoice_data()">Save</button>
+                        <td class="minify" id="downloadid">
+                            <button onclick="download_invoice()" type="button" class="btn toggleSaveBox"><ins
+                                    class="isSaving">Download&nbsp;</ins>Invoice</button>
                         </td>
+
+
                     </tr>
                 </table>
+
+
                 <table class="nav-content hidden-small">
                     <tr>
+
                         <td class="minify">
                             <button type="button" class="btn btnPreview">Preview</button>
                         </td>
@@ -236,7 +1750,7 @@
                             <button type="button" class="btn has-tooltip tooltip-bottom disabled" tabindex="-1">Print <i
                                     class="tip">After saving your invoice<br>(click the save-button to the right)<br>you
                                     can print your invoice.</i></button>
-                            </td>
+                        </td>
                         <td class="minify">
                             <button type="button" class="btn has-tooltip tooltip-bottom disabled" tabindex="-1">PDF <i
                                     class="tip">After saving your invoice<br>(click the save-button to the right)<br>you
@@ -253,137 +1767,235 @@
                                     right)<br>you can record payments.</i></button>
                         </td>
                         <td></td>
-                        <td class="minify" id="Savebutton2">
-                            <button type="button" class="btn toggleSaveBox" onclick="invoice_data()">Save</button>
+                        <td class="minify" id="downloadid2">
+                            <button type="button" onclick="download_invoice()" class="btn toggleSaveBox"><ins
+                                    class="isSaving">Download&nbsp;</ins>Invoice</button>
                         </td>
+
                     </tr>
                 </table>
+
+
                 <input type="hidden" name="submitButton" id="submitButton" value="Save">
+
                 <input type="hidden" name="c" value="">
                 <input type="hidden" name="emailaddress_logged_in" value="">
+
                 <input type="hidden" name="deleted" id="deleted" value="0">
                 <input type="hidden" name="currency_code" id="currency_code" value="$">
+
                 <input type="hidden" name="status" id="status" value="">
+
                 <input type="hidden" name="module_id" id="module_id" value="106">
+
+
                 <div id="modeEdit" class="paper">
                     <div class="meta">
+
                         <div class="meta-top-right">
+
+
+
                             <div class="upload-container">
+
                                 <div id="upload_area" style="display:none">
                                 </div>
+
                                 <div class="clearfix"></div>
+
+
                                 <div class="clearfix">
+
                                     <div id="btnDeleteLogo" style="display:none;">
                                         <button type="button" class="btn btn-xs right" onclick="deleteLogo();">Delete
                                             Logo</button>
                                     </div>
+
                                     <label id="btnUploadLogo" class="input-file">
                                         <b class="btn btn-xs right">Browse...</b>
                                         <input name="filename" type="file" id="logo_file_input"
                                             accept=".jpg, .jpeg, .gif, .bmp, .png">
                                     </label>
+
                                 </div>
+
+
+
+
+
                                 <input type="text" style="display:none;" name="customization_logoFilename"
                                     id="customization_logoFilename" onchange="updateLogo()" value="">
+
+
+
                                 <input type="hidden" name="filename" value="filename" />
+
+                            </div>
+                            <div id="invoice_inform">
+
                             </div>
                             <input type="text" name="invoice_heading" id="invoice_heading" class="meta-title right"
                                 value="INVOICE" maxlength="50" autocomplete="nope">
+
                         </div>
                         <div class="meta-left">
+
                             <table class="form-invoice">
+
                                 <tr>
                                     <td>
                                         <h2>From</h2>
                                     </td>
-                                    </tr>
+                                </tr>
+
                                 <tr>
                                     <td>
+
                                         <input type="text" name="from_name" id="from_name" value="" maxlength="500"
                                             autocomplete="name" placeholder="Your Name">
+
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td>
+
+
                                         <textarea name="from_address" id="from_address" rows="1"
                                             style="min-height:86px !important" class="growTextarea" maxlength="1000"
                                             autocomplete="address" placeholder="Your address"></textarea>
+
+
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td style="padding-top:20px">
                                         <h2>To</h2>
                                     </td>
                                 </tr>
+
                                 <tr id="rowNewCustomer">
                                     <td>
+
+
                                         <input type="text" name="to_new_customer" id="to_new_customer" value=""
                                             autocomplete="nope" maxlength="500" placeholder="Customer name">
+
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <td>
+
+
                                         <textarea name="to_address" id="to_address" rows="1"
                                             style="min-height:86px !important" class="growTextarea" autocomplete="nope"
                                             maxlength="1000" placeholder="Customer address"></textarea>
+
                                     </td>
                                 </tr>
+
                             </table>
+
+
                         </div>
                         <!--end meta-left-->
+
                         <div class="meta-right">
+
+
                             <table class="form-invoice dates">
                                 <tr>
                                     <td class="label-header">Invoice #</td>
                                     <td>
+
                                         <input type="text" name="invoice_number" id="invoice_number"
                                             onkeyup="onlyNumbersLettersOrDashes(this)" value="0000001" maxlength="55"
                                             autocomplete="nope">
+
                                     </td>
                                 </tr>
+
+
+
+
                                 <tr id="po_numberTR" style="display:none;">
                                     <td class="label-header">P.O. #</td>
                                     <td>
+
                                         <input type="text" name="po_number" id="po_number"
                                             onkeyup="onlyNumbersLettersOrDashes(this)" value="" maxlength="55"
                                             autocomplete="nope">
+
                                     </td>
                                 </tr>
+
                             </table>
+
                             <div class="form-invoice input-daterange dateRange">
+
                                 <span class="label">Invoice Date</span>
                                 <input type="text" name="invoice_date" id="dateStart" class="form-control start"
-                                    value="03/12/2022" maxlength="55" readonly>
+                                    value="03/31/2022" maxlength="55" readonly>
+
                                 <span class="label end">Due Date</span>
                                 <input type="text" name="payment_due_date" id="dateEnd" class="form-control end"
-                                    value="03/12/2022" maxlength="55" readonly>
+                                    value="03/31/2022" maxlength="55" readonly>
                             </div>
+
+
                         </div>
                         <!--end meta-right-->
+
                     </div>
                     <!--end meta-->
+
+
+
+
+
                     <table id="dataTable" class="table-record">
-                        <tbody id="lines">
+
+                        <tbody>
                             <tr class="hidden-small">
+
                                 <th></th>
+
                                 <th style="width:86px">Item</th>
+
                                 <th>Description</th>
+
                                 <th style="width:80px" class="text-right">Unit Price</th>
+
                                 <th style="width:80px" class="text-right">Quantity</th>
+
                                 <th style="width:80px" class="text-right">Amount</th>
+
                             </tr>
+
+
+
                             <tr class="line">
+
                                 <td class="zap has-tooltip tooltip-left">
+
                                     <!-- ZAP -->
                                     <button tabindex="-1" type="button" class="btnDeleteRow btn-zap">
                                         <i class="material-icons">&#xe5c9;</i>
                                     </button>
                                     <i class="tip">Delete Line</i>
+
                                 </td>
+
+
                                 <td class="dropdown-toggle select item">
+
                                     <label class="hidden-large">Item</label>
+
                                     <select class="noborder selectItem" onfocusin="objSelected=this;" name="item[]"
                                         id="itemSelect0">
+
                                         <option value="" selected="selected"></option>
                                         <option value="Service">Service</option>
                                         <option value="Hours">Hours</option>
@@ -392,40 +2004,72 @@
                                         <option value="Discount_aynax">Discount</option>
                                     </select>
                                 </td>
+
+
                                 <td>
+
                                     <label class="hidden-large">Description</label>
-                                    <textarea name="description[]" id="description1" rows="1" maxlength="1000"
+
+                                    <textarea name="description[]" id="description[]" rows="1" maxlength="1000"
                                         class="growTextarea"></textarea>
+
                                 </td>
+
+
                                 <td class="price">
+
                                     <label class="hidden-large">Unit Price</label>
-                                    <input type="number" name="unit_price[]" id="unit_price1"
+
+                                    <input type="number" name="unit_price[]" id="unit_price[]"
                                         class="text-right linePrice inputNumber" value="" autocomplete="nope"
                                         placeholder="0.00">
+
                                 </td>
+
                                 <td class="qty">
+
                                     <label class="hidden-large">Quantity</label>
-                                    <input type="number" name="qty[]" id="qty1" class="text-right lineQty inputNumber"
+
+                                    <input type="number" name="qty[]" id="qty[]" class="text-right lineQty inputNumber"
                                         value="" autocomplete="nope" placeholder="0.00">
+
                                 </td>
+
+
+
                                 <td class="amount alertLineTotal">
+
                                     <label class="hidden-large">Amount</label>
-                                    <input type="text" tabindex="-1" name="total[]" id="total1" class="lineTotal"
+
+                                    <input type="text" tabindex="-1" name="total[]" id="total[]" class="lineTotal"
                                         value="0.00" readonly>
+
                                 </td>
+
                             </tr>
+
+
+
                             <tr class="line">
+
                                 <td class="zap has-tooltip tooltip-left">
+
                                     <!-- ZAP -->
                                     <button tabindex="-1" type="button" class="btnDeleteRow btn-zap">
                                         <i class="material-icons">&#xe5c9;</i>
                                     </button>
                                     <i class="tip">Delete Line</i>
+
                                 </td>
+
+
                                 <td class="dropdown-toggle select item">
+
                                     <label class="hidden-large">Item</label>
+
                                     <select class="noborder selectItem" onfocusin="objSelected=this;" name="item[]"
                                         id="itemSelect1">
+
                                         <option value="" selected="selected"></option>
                                         <option value="Service">Service</option>
                                         <option value="Hours">Hours</option>
@@ -434,119 +2078,279 @@
                                         <option value="Discount_aynax">Discount</option>
                                     </select>
                                 </td>
+
+
                                 <td>
+
                                     <label class="hidden-large">Description</label>
-                                    <textarea name="description[]" id="description2" class="description" rows="1" maxlength="1000"
+
+                                    <textarea name="description[]" id="description[]" rows="1" maxlength="1000"
                                         class="growTextarea"></textarea>
+
                                 </td>
+
+
                                 <td class="price">
+
                                     <label class="hidden-large">Unit Price</label>
-                                    <input type="number" name="unit_price[]" id="unit_price2"
+
+                                    <input type="number" name="unit_price[]" id="unit_price[]"
                                         class="text-right linePrice inputNumber" value="" autocomplete="nope"
                                         placeholder="0.00">
+
                                 </td>
+
                                 <td class="qty">
+
                                     <label class="hidden-large">Quantity</label>
-                                    <input type="number" name="qty[]" id="qty2" class="text-right lineQty inputNumber"
+
+                                    <input type="number" name="qty[]" id="qty[]" class="text-right lineQty inputNumber"
                                         value="" autocomplete="nope" placeholder="0.00">
+
                                 </td>
+
+
+
                                 <td class="amount alertLineTotal">
+
                                     <label class="hidden-large">Amount</label>
-                                    <input type="text" tabindex="-1" name="total[]" id="total2" class="lineTotal"
+
+                                    <input type="text" tabindex="-1" name="total[]" id="total[]" class="lineTotal"
                                         value="0.00" readonly>
+
                                 </td>
+
                             </tr>
+
+
+
+
                         </tbody>
                     </table><!-- end dataTable -->
+
+
+
+
+
                     <div class="button-row">
-                        <button type="button" class="btn btn-xs btnAddRow" onclick="newLinejs()">
+                        <button type="button" class="btn btn-xs btnAddRow" onclick="newLineClick()">
                             <i class="icon-new">&nbsp;</i><span>New Line</span>
                         </button>
                     </div>
+
+
+
+
+
                     <div class="foot">
+
                         <div class="foot-left notes">
+
                             <label class="input-label">
                                 <span>Notes</span>
                             </label>
+
                             <textarea name="invoice_notes" id="invoice_notes" rows="1"
                                 style="min-height:108px !important;" maxlength="5000" class="growTextarea"></textarea>
+
                         </div>
                         <!--end foot-left-->
+
                         <div class="foot-right">
+
+
+
                             <table id="table_sums" class="sums">
+
+
                                 <tr class="sum-subtotal">
+
                                     <td class="sum-label">
                                         Subtotal
                                     </td>
+
                                     <td class="sum-number">
+
                                         <input type="text" name="sum_subtotal" id="sum_subtotal"
                                             class="noborder nofocus text-right"
-                                               onclick="alert('The subtotal is calculated automatically as soon as you have entered something into both the unit price and the quantity field in the lines above.\n\nExample: If you wish to enter a service for $100.00, you should enter 100.00 in the unit price field and 1.00 in the quantity field.')"
+                                            onclick="alert('The subtotal is calculated automatically as soon as you have entered something into both the unit price and the quantity field in the lines above.\n\nExample: If you wish to enter a service for $100.00, you should enter 100.00 in the unit price field and 1.00 in the quantity field.')"
                                             value="0.00" readonly>
+
                                     </td>
+
                                 </tr>
+
+
+
+
+
                                 <tr class="sum-discount" id="sum_discountTR" style="display:none;">
+
                                     <td class="sum-label">
                                         <span style="display:inline-block; width:.86em">&ndash;</span> Discount
                                     </td>
+
                                     <td class="sum-number">
+
                                         <input type="text" name="sum_discount" id="sum_discount"
                                             class="noborder nofocus text-right"
                                             onclick="alert('The discount is calculated automatically as the sum of all lines with discount above.')"
                                             value="0.00" readonly>
+
                                     </td>
+
                                 </tr>
+
+
+
+
+
                                 <tr class="sum-total">
+
                                     <td class="sum-label">
                                         Total
                                     </td>
+
                                     <td class="sum-number">
+
                                         <input type="text" name="sum_total" id="sum_total"
                                             class="noborder nofocus text-right"
                                             onclick="alert('The total is calculated automatically as soon as you have entered something into both the unit price and the quantity field in the lines above.\n\nExample: If you wish to enter a service for $100.00, you should enter 100.00 in the unit price field and 1.00 in the quantity field.')"
                                             value="0.00" readonly>
+
                                     </td>
+
                                 </tr>
+
+
+
+
                                 <tr class="sum-paid">
+
                                     <td class="sum-label">
                                         Amount Paid
                                     </td>
+
                                     <td class="sum-number">
+
                                         <input type="text" name="amount_paid" id="amount_paid"
                                             class="noborder nofocus text-right" value="0.00" readonly>
+
                                     </td>
+
                                 </tr>
+
+
+
                                 <tr class="sum-balance">
+
                                     <td class="sum-label">
                                         Balance Due
                                     </td>
+
                                     <td class="sum-number"
                                         onclick="alert('The balance due is calculated automatically as soon as you have entered something into both the unit price and the quantity field in the lines above.\n\nExample: If you wish to enter a service for $100.00, you should enter 100.00 in the unit price field and 1.00 in the quantity field')">
+
                                         <input type="hidden" name="balance_due" id="balance_due"
                                             class="noborder nofocus text-right" value="" readonly>
+
                                         <ins id="insert_balance">0.00</ins>
+
                                     </td>
+
                                 </tr>
+
                             </table><!-- end table_sums -->
+
+
                         </div>
                     </div>
+
+
                     <input type="hidden" id="lastDocFormInput" name="lastDocFormInput" value="POST_OK">
+
+
+
                 </div>
                 <!--end #modeEdit-->
+
+
+
+                <table class="navbar-templates hidden-large">
+                    <tr>
+
+                        <td class="minify">
+                            <button type="button" class="btn btnPreview">View</button>
+                        </td>
+                        <td class="minify">
+                            <button type="button" class="btn disabled" tabindex="-1"
+                                onclick="alert('Please save your invoice before creating PDF.')">PDF</button>
+                        </td>
+                        <td class="minify">
+                            <button type="button" class="btn disabled" tabindex="-1"
+                                onclick="alert('Please save your invoice before sending.')">Send</button>
+                        </td>
+                        <td class="minify">
+                            <button type="button" class="btn disabled hidden-xs" tabindex="-1"
+                                onclick="alert('Please save your invoice before recording payments.')">Payments</button>
+                        </td>
+                        <td></td>
+                        <td class="minify">
+                            <button type="button" class="btn openSaveBox">Save</button>
+                        </td>
+
+                    </tr>
+                </table>
+
+            </form>
+
+
+        </div>
+    </div><!-- end page-body -->
+
+
+
+
+
     <footer class="page-footer">
         <div class="container">
+
+            <div class="footer-links">
+                <a href="https://www.skynova.com/support">Support</a>
+                <a href="https://www.skynova.com/about">About</a>
+                <a href="https://www.skynova.com/blog">Blog</a>
+                <a href="https://www.skynova.com/learn">Learn</a>
+                <a href="https://www.skynova.com/privacy">Privacy</a>
+                <a href="https://www.skynova.com/tos">Terms</a>
+
+            </div>
+
             <div class="copyright">
                 skynova.com | PO Box 628 | West Chester, PA 19381 | United States
             </div>
+
         </div>
     </footer>
+
+
     <script src="https://www.skynova.com/javascript/bootstrap.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
+
+
+
+
+
     <script>
+
+
         var jsonItemList = '{"":"","Service":"Service","Hours":"Hours","Days":"Days","Product":"Product","Discount_aynax":"Discount"}';
         jsonItemList = (jsonItemList) ? $.parseJSON(jsonItemList) : {};
+
         var currencyCode = '$';
+
+
         function is_touch_device() {
             var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
             var mq = function (query) {
@@ -558,15 +2362,21 @@
             var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
             return mq(query);
         }
+
         (function ($) {
+
+
+
             $(".toggleSaveBox").on('mouseup', function () {
                 //$('body').toggleClass('saving');
+
                 ($('body').hasClass('saving')) ? $('body').removeClass('saving') : $('body').addClass('saving');
                 if ($('body').hasClass('saving')) {
                     $('#options').removeClass('open');
                     $('#btnToggleOptions').text('Show Customization Options');
                 }
             });
+
             $(".openSaveBox").on('mouseup', function () {
                 $('body').addClass('saving');
                 $('#options').removeClass('open');
@@ -575,52 +2385,77 @@
                     scrollTop: $('.page-header').offset().top,
                 }, 500, 'linear')
             });
+
+
             $(".alertTax").on('mouseup', function (e) {
                 alert($(this).data('alert'));
             });
+
             $(".alertTax").find('input').on('change', function (e) {
                 $(this).prop('checked', false);
             });
+
+
             $(".btnPreview").on('mouseup', function () {
+
                 //spinner
                 $(this).prop('disabled', true).addClass('btn-spinner');
                 setTimeout(function () {
                     $(this).prop('disabled', false).removeClass('btn-spinner');
                 }, 4000);
+
                 //submit
                 $('#submitButton').val('Preview');
                 $(this).closest('form').submit();
+
             });
+
+
             $(".btnEdit").on('mouseup', function () {
+
                 //spinner
                 $(this).prop('disabled', true).addClass('btn-spinner');
                 setTimeout(function () {
                     $(this).prop('disabled', false).removeClass('btn-spinner');
                 }, 4000);
+
                 //submit
                 $('#submitButton').val('Edit');
                 $(this).closest('form').submit();
+
             });
+
+
             $(".linkSpinner").on('mouseup', function () {
+
                 //spinner
                 $(this).prop('disabled', true).addClass('btn-spinner');
                 setTimeout(function () {
                     $(this).prop('disabled', false).removeClass('btn-spinner');
                 }, 4000);
+
             });
+
+
             $('.btnRegister').click(function (e) {
+
                 //spinner
                 $(this).prop('disabled', true).addClass('btn-spinner');
+
                 //submit
                 $(this).closest('form').submit();
+
             });
+
             $('input[name=password]').on('keyup', function (e) {
                 if (e.which == 13) {
                     $('.btnRegister').click();
                 }
             });
+
             //Responsive datepicker
             var today = new Date().toISOString().substr(0, 10)
+
             if (is_touch_device()) {
                 $('.dateRange').find('input').attr('type', 'date').attr("readonly", false).addClass('touch');
                 $('.dateRange').find('input').val(today);
@@ -640,6 +2475,7 @@
                     autoclose: true
                 });
             }
+
             $('#dateStart.touch').on('change', function () {
                 console.log('chg');
                 var start = new Date($('#dateStart').val());
@@ -648,6 +2484,7 @@
                     $('#dateEnd').val(new Date(start).toISOString().substr(0, 10));
                 }
             });
+
             $('#dateEnd.touch').on('change', function () {
                 console.log('chg');
                 var start = new Date($('#dateStart').val());
@@ -656,23 +2493,32 @@
                     $('#dateStart').val(new Date(end).toISOString().substr(0, 10));
                 }
             });
+
             //Responsive alert
             $('#dataTable').on('click', '.alertLineTotal', function (e) {
                 if (is_touch_device() == false) {
                     alert('The amount is calculated automatically as soon as you have entered something into both the unit price and the quantity field. \n\n Example: If you wish to enter a service for $100.00, you should enter 100.00 in the unit price field and 1.00 in the quantity field.');
                 }
             });
+
             $(window).resize(function () {
                 if (typeof growTextarea == 'function') {
                     $('.growTextarea').each(growTextarea);
                 }
             });
+
+
+
             var form = $('form');
+
             //inputNumber
+
             form.on('keydown', '.inputNumber', function (e) {
+
                 if (e.which === 38 || e.which === 40 || e.which === 220 || e.which === 32) {
                     e.preventDefault(); //if enabled, arrows would increment number and also switch cell
                 }
+
                 var disarray = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '`', '~', ';', ':', '/', '?', '<', '>', ',', "'", '"',
                     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
                     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
@@ -680,10 +2526,15 @@
                 if (disarray.indexOf(e.key) > -1) {
                     e.preventDefault();
                 }
+
                 if (e.key === "." && e.target.value.indexOf(".") !== -1) e.preventDefault();
                 if (e.key === "e") e.preventDefault();
+
             });
+
+
             //submit form
+
             var submitted = 0;
             form.submit(function () {
                 submitted++;
@@ -692,13 +2543,32 @@
                 } else {
                     return true; //console.log('go');
                 }
-            })
-        })(jQuery)
-    </script>
-    <script src="https://www.skynova.com/app/invoices/javascript/javascript.js?v=V0001549"></script>
-    <script
-        type="text/javascript">window.NREUM || (NREUM = {}); NREUM.info = { "beacon": "bam-cell.nr-data.net", "licenseKey": "8a693f45cd", "applicationID": "149979790", "transactionName": "MlAEYRBYDUEFUkwIDQsaM0cLFhNHBl1RAk0RUAtFDlgXV0tDVxQWAEdIRQpJ", "queueTime": 0, "applicationTime": 47, "atts": "HhcHF1hCHk8=", "errorBeacon": "bam-cell.nr-data.net", "agent": "" }</script>
+            });
 
+
+
+
+
+
+
+        })(jQuery);
+
+
+    </script>
+
+
+
+
+
+    <script src="https://www.skynova.com/app/invoices/javascript/javascript.js?v=V0001553"></script>
+
+    <script
+        type="text/javascript">window.NREUM || (NREUM = {}); NREUM.info = { "beacon": "bam-cell.nr-data.net", "licenseKey": "8a693f45cd", "applicationID": "149979790", "transactionName": "MlAEYRBYDUEFUkwIDQsaM0cLFhNHBl1RAk0RUAtFDlgXV0tDVxQWAEdIRQpJ", "queueTime": 0, "applicationTime": 48, "atts": "HhcHF1hCHk8=", "errorBeacon": "bam-cell.nr-data.net", "agent": "" }</script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+        integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
+        data-cf-beacon='{"rayId":"6f46c8054c59cc7f","token":"984c858828644809a4fdf1ea68f32b03","version":"2021.12.0","si":100}'
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

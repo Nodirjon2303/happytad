@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'calculator/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'calculator/img/budgeting.png' %}">
+</head>
+<body>
+
+    <script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+</script>
+    
+    <div class="header">
+        <h1>Expense Tracker</h1>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <div class="top_card">
+                <p>Your Current Balance</p>
+                <h3><span id="symbol"></span><span id="balance">{{ balance }}</span></h3>
+            </div>
+
+
+            <div class="form">
+                <h3>Add new transaction</h3>
+
+                <div class="form-group">
+                    <label for="transaction_name">Name</label>
+                    <input type="text" name="transaction_name" placeholder="Description" id="transaction_name">
+                </div>
+
+                <div class="form-group radio">
+                    <label for="transaction_type">Type</label>
+                    <div class="radio_group">
+                        <input type="radio" value="income" name="transaction_type" id="income" checked>
+                        <label for="transaction_type">Income</label>
+                    </div>
+                    <div class="radio_group">
+                        <input type="radio" value="expense" name="transaction_type" id="expense" placeholder="Expense">
+                        <label for="transaction_type">Expense</label>          
+                    </div>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="transaction_amount">Amount</label>
+                    <input type="number" placeholder="300" name="transaction_amount" id="transaction_amount">
+                </div>
+
+                <button class="btn btn-block"  id="add_transaction">Add Transaction</button>
+
+                <button class="btn btn-block" id="cancel_edit" onclick="cancelEdit()">Cancel Edit</button>
+
+            </div>
+
+            <p class="second_heading">Your Transactions:</p>   
+
+            <div class="conatiner_of_list_of_transactions">
+                
+                <ul id="list_of_transactions">
+                    {% for i in cashbook %}
+                    <li class="transaction income" style="background-color:{{ i.color }}">
+                        <p>{{ i.description }}</p>
+                        <div class="right">
+                            <p>{{ i.type }}{{ i.amount }}</p>
+                            <button class="link">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="link">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy;2021 By Webbing My Life
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'calculator/js/app.js' %}"></script>
+</body>
+</html>

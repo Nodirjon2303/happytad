@@ -66,3 +66,11 @@ class Homethemes(models.Model):
     def __str__(self):
         return self.title
 
+class Cashbook(models.Model):
+    user = models.ForeignKey(User, models.CASCADE,null=True, blank=True)
+    type = models.CharField(max_length=25, null=True, blank=True, choices=(('income', "Income"), ("expense", "Expense")))
+    amount = models.IntegerField(null=True, blank=True)
+    description = models.CharField(max_length=225, null=True, blank=True)
+    created_date = models.DateTimeField(null=True, blank=True, auto_now_add=True)
+
+
