@@ -1637,9 +1637,8 @@
 
             <div class="page-header">
                 <div class="isWorking">
-                    <h1>Free Printable Invoice</h1>
-                    <p>To create a free invoice, just fill out the template below. To print, download or send your
-                        invoice for free, click the save button.</p>
+                    <h1>Chop etish uchun bepul hisob faktura</h1>
+                    <p>Bepul hisob-faktura yaratish uchun quyidagi shablonni to'ldirish kifoya. Hisob fakturani bepul chop etish uchun malumotlarni to'ldiring va Invoice tugmasini bosing</p>
                     <p class="hidden-small">If you need more options, for example to upload a logo, click the link
                         below.</p>
                 </div>
@@ -1744,7 +1743,7 @@
                     <tr>
 
                         <td class="minify">
-                            <button type="button" class="btn btnPreview">Preview</button>
+                            <button type="button" class="btn btnPreview">Ko'rinish</button>
                         </td>
                         <td class="minify">
                             <button type="button" class="btn has-tooltip tooltip-bottom disabled" tabindex="-1">Print <i
@@ -1844,7 +1843,7 @@
 
                                 <tr>
                                     <td>
-                                        <h2>From</h2>
+                                        <h2>Kimdan</h2>
                                     </td>
                                 </tr>
 
@@ -1852,7 +1851,7 @@
                                     <td>
 
                                         <input type="text" name="from_name" id="from_name" value="" maxlength="500"
-                                            autocomplete="name" placeholder="Your Name">
+                                            autocomplete="name" placeholder="Ismingiz">
 
                                     </td>
                                 </tr>
@@ -1863,7 +1862,7 @@
 
                                         <textarea name="from_address" id="from_address" rows="1"
                                             style="min-height:86px !important" class="growTextarea" maxlength="1000"
-                                            autocomplete="address" placeholder="Your address"></textarea>
+                                            autocomplete="address" placeholder="Sizning manzilingiz"></textarea>
 
 
                                     </td>
@@ -1871,7 +1870,7 @@
 
                                 <tr>
                                     <td style="padding-top:20px">
-                                        <h2>To</h2>
+                                        <h2>Kimga</h2>
                                     </td>
                                 </tr>
 
@@ -1880,7 +1879,7 @@
 
 
                                         <input type="text" name="to_new_customer" id="to_new_customer" value=""
-                                            autocomplete="nope" maxlength="500" placeholder="Customer name">
+                                            autocomplete="nope" maxlength="500" placeholder="Mijoz ismi">
 
                                     </td>
                                 </tr>
@@ -1891,7 +1890,7 @@
 
                                         <textarea name="to_address" id="to_address" rows="1"
                                             style="min-height:86px !important" class="growTextarea" autocomplete="nope"
-                                            maxlength="1000" placeholder="Customer address"></textarea>
+                                            maxlength="1000" placeholder="Mijoz manzili"></textarea>
 
                                     </td>
                                 </tr>
@@ -1907,7 +1906,7 @@
 
                             <table class="form-invoice dates">
                                 <tr>
-                                    <td class="label-header">Invoice #</td>
+                                    <td class="label-header">Invoice raqami</td>
                                     <td>
 
                                         <input type="text" name="invoice_number" id="invoice_number"
@@ -1935,11 +1934,11 @@
 
                             <div class="form-invoice input-daterange dateRange">
 
-                                <span class="label">Invoice Date</span>
+                                <span class="label">Invoice sanasi</span>
                                 <input type="text" name="invoice_date" id="dateStart" class="form-control start"
                                     value="03/31/2022" maxlength="55" readonly>
 
-                                <span class="label end">Due Date</span>
+                                <span class="label end">To'lov sanasi</span>
                                 <input type="text" name="payment_due_date" id="dateEnd" class="form-control end"
                                     value="03/31/2022" maxlength="55" readonly>
                             </div>
@@ -1962,15 +1961,15 @@
 
                                 <th></th>
 
-                                <th style="width:86px">Item</th>
+                                <th style="width:86px">mahsulot</th>
 
-                                <th>Description</th>
+                                <th>Tavsif</th>
 
-                                <th style="width:80px" class="text-right">Unit Price</th>
+                                <th style="width:80px" class="text-right">Donasining narxi</th>
 
-                                <th style="width:80px" class="text-right">Quantity</th>
+                                <th style="width:80px" class="text-right">Soni</th>
 
-                                <th style="width:80px" class="text-right">Amount</th>
+                                <th style="width:80px" class="text-right">miqdori</th>
 
                             </tr>
 
@@ -1991,7 +1990,7 @@
 
                                 <td class="dropdown-toggle select item">
 
-                                    <label class="hidden-large">Item</label>
+                                    <label class="hidden-large">Mahsulot</label>
 
                                     <select class="noborder selectItem" onfocusin="objSelected=this;" name="item[]"
                                         id="itemSelect0">
@@ -2008,7 +2007,7 @@
 
                                 <td>
 
-                                    <label class="hidden-large">Description</label>
+                                    <label class="hidden-large">Tavsif</label>
 
                                     <textarea name="description[]" id="description[]" rows="1" maxlength="1000"
                                         class="growTextarea"></textarea>
@@ -2018,7 +2017,7 @@
 
                                 <td class="price">
 
-                                    <label class="hidden-large">Unit Price</label>
+                                    <label class="hidden-large">Donasining narxi</label>
 
                                     <input type="number" name="unit_price[]" id="unit_price[]"
                                         class="text-right linePrice inputNumber" value="" autocomplete="nope"
@@ -2028,7 +2027,7 @@
 
                                 <td class="qty">
 
-                                    <label class="hidden-large">Quantity</label>
+                                    <label class="hidden-large">Soni</label>
 
                                     <input type="number" name="qty[]" id="qty[]" class="text-right lineQty inputNumber"
                                         value="" autocomplete="nope" placeholder="0.00">
@@ -2039,7 +2038,7 @@
 
                                 <td class="amount alertLineTotal">
 
-                                    <label class="hidden-large">Amount</label>
+                                    <label class="hidden-large">Miqdori</label>
 
                                     <input type="text" tabindex="-1" name="total[]" id="total[]" class="lineTotal"
                                         value="0.00" readonly>
@@ -2065,7 +2064,7 @@
 
                                 <td class="dropdown-toggle select item">
 
-                                    <label class="hidden-large">Item</label>
+                                    <label class="hidden-large">Mahsulot</label>
 
                                     <select class="noborder selectItem" onfocusin="objSelected=this;" name="item[]"
                                         id="itemSelect1">
@@ -2082,7 +2081,7 @@
 
                                 <td>
 
-                                    <label class="hidden-large">Description</label>
+                                    <label class="hidden-large">Tavsif</label>
 
                                     <textarea name="description[]" id="description[]" rows="1" maxlength="1000"
                                         class="growTextarea"></textarea>
@@ -2092,7 +2091,7 @@
 
                                 <td class="price">
 
-                                    <label class="hidden-large">Unit Price</label>
+                                    <label class="hidden-large">Bitasining narxi</label>
 
                                     <input type="number" name="unit_price[]" id="unit_price[]"
                                         class="text-right linePrice inputNumber" value="" autocomplete="nope"
@@ -2102,7 +2101,7 @@
 
                                 <td class="qty">
 
-                                    <label class="hidden-large">Quantity</label>
+                                    <label class="hidden-large">Bittasining narxi</label>
 
                                     <input type="number" name="qty[]" id="qty[]" class="text-right lineQty inputNumber"
                                         value="" autocomplete="nope" placeholder="0.00">
@@ -2113,7 +2112,7 @@
 
                                 <td class="amount alertLineTotal">
 
-                                    <label class="hidden-large">Amount</label>
+                                    <label class="hidden-large">miqdori</label>
 
                                     <input type="text" tabindex="-1" name="total[]" id="total[]" class="lineTotal"
                                         value="0.00" readonly>
@@ -2134,7 +2133,7 @@
 
                     <div class="button-row">
                         <button type="button" class="btn btn-xs btnAddRow" onclick="newLineClick()">
-                            <i class="icon-new">&nbsp;</i><span>New Line</span>
+                            <i class="icon-new">&nbsp;</i><span>Yangi qator</span>
                         </button>
                     </div>
 
@@ -2187,7 +2186,7 @@
                                 <tr class="sum-discount" id="sum_discountTR" style="display:none;">
 
                                     <td class="sum-label">
-                                        <span style="display:inline-block; width:.86em">&ndash;</span> Discount
+                                        <span style="display:inline-block; width:.86em">&ndash;</span> Chegirma
                                     </td>
 
                                     <td class="sum-number">
@@ -2208,7 +2207,7 @@
                                 <tr class="sum-total">
 
                                     <td class="sum-label">
-                                        Total
+                                        Jami
                                     </td>
 
                                     <td class="sum-number">
@@ -2228,7 +2227,7 @@
                                 <tr class="sum-paid">
 
                                     <td class="sum-label">
-                                        Amount Paid
+                                        To'langan miqdori
                                     </td>
 
                                     <td class="sum-number">
@@ -2245,7 +2244,7 @@
                                 <tr class="sum-balance">
 
                                     <td class="sum-label">
-                                        Balance Due
+                                        To'lanadigan balans
                                     </td>
 
                                     <td class="sum-number"

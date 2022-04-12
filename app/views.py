@@ -42,8 +42,7 @@ def registerView(request):
         Tadbirkor.objects.create(user=user,phone_number=mobile, company_name=company, address=region).save()
         if user:
             login(request=request, user=user)
-            
-            return redirect('login')
+            return redirect('home')
     context = {
         'form': Profile_Form()
     }

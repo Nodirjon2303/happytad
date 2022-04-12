@@ -2,6 +2,7 @@
 <html lang="en">
 {% load static %}
 <head>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,11 +57,11 @@
                     <label for="transaction_type">Type</label>
                     <div class="radio_group">
                         <input type="radio" value="income" name="transaction_type" id="income" checked>
-                        <label for="transaction_type">Income</label>
+                        <label for="transaction_type"><i class='fas fa-plus' style='color: green'></i></label>
                     </div>
                     <div class="radio_group">
                         <input type="radio" value="expense" name="transaction_type" id="expense" placeholder="Expense">
-                        <label for="transaction_type">Expense</label>          
+                        <label for="transaction_type"><i class='fa fa-minus' style='color: red'></i></label>
                     </div>
                     
                 </div>
