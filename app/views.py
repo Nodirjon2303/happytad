@@ -7,16 +7,15 @@ from .models import *
 from InvoiceGenerator.api import Invoice, Item, Client, Provider, Creator
 from tempfile import NamedTemporaryFile
 import json
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 import os
 
 # Create your views here.
 
 def loginView(request):
     if request.POST:
-        print(request.POST)
         if request.user.username:
-            return redirect('home')
+            return redirect('calculator_page')
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
@@ -24,25 +23,32 @@ def loginView(request):
         if user:
             print("Ishladi")
             login(request=request, user=user)
-            return redirect('home')
+            return redirect('calculator_page')
     return render(request, 'login.html', context={})
 
 
 def registerView(request):
-    form = Profile_Form(request.POST)
-    if form.is_valid():
-        form.save()
+    if request.POST:
+        if request.user.username:
+            return redirect('home')
         username = request.POST.get("username")
         password = request.POST.get("password1")
-        mobile = request.POST.get("mobile")
-        company = request.POST.get("company")
-        region = request.POST.get('region')
-
-        user = authenticate(request=request, username=username, password=password)
-        Tadbirkor.objects.create(user=user,phone_number=mobile, company_name=company, address=region).save()
-        if user:
-            login(request=request, user=user)
-            return redirect('home')
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        users = [i.username for i in User.objects.all()]
+        print(users)
+        if username in users:
+            return render(request,'Registration.html', {"error": "Ushbu username allaqachon olingan boshqa username kiriting"} )
+        else:
+            User.objects.create(username=username, password=password)
+            user = User.objects.get(username=username)
+            Tadbirkor.objects.create(user=user).save()
+            print(user)
+            if user:
+                user.first_name = first_name
+                user.last_name = last_name
+                login(request=request, user=user)
+                return redirect('calculator_page')
     context = {
         'form': Profile_Form()
     }

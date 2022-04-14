@@ -9,7 +9,7 @@
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{% static 'Home-new/css/style.css' %}">
 
@@ -29,7 +29,12 @@
         <nav class="navbar">
             <a href="{% url 'invoice' %}">invoice</a>
             <a href="{% url 'calculator_page' %}">Cashbook</a>
-            <a href="{% url 'login' %}">Login</a>
+            {% if request.user.username %}
+            <a href="#"><i class='fas fa-user' style='color: blue'></i>{{ request.user.username }}</a>
+            {% else %}
+
+                <a href="{% url 'login' %}">Login</a>
+            {% endif %}
             <!-- <a href="#pricing">pricing</a> -->
             <!-- <a href="#contact">contact</a> -->
         </nav>
